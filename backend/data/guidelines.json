@@ -1,0 +1,609 @@
+[
+  {
+    "id": "who_bp_1",
+    "source": "WHO Hypertension Guidelines 2023",
+    "text": "Hypertension is defined as systolic BP ≥140 mmHg or diastolic BP ≥90 mmHg. Lifestyle modifications including reduced salt intake (<5g/day), regular physical activity (30 min/day), and weight management are first-line interventions."
+  },
+  {
+    "id": "who_bp_2",
+    "source": "WHO Hypertension Guidelines 2023",
+    "text": "Patients with BP ≥180/120 mmHg (hypertensive crisis) require immediate medical attention. Do not attempt home management. Proceed to the nearest health facility."
+  },
+  {
+    "id": "who_bp_3",
+    "source": "WHO Hypertension Guidelines 2023",
+    "text": "Antihypertensive medications are recommended when BP remains ≥140/90 mmHg despite lifestyle changes. Common first-line drugs include ACE inhibitors, calcium channel blockers, and thiazide diuretics. Never stop medication without consulting a doctor."
+  },
+  {
+    "id": "who_diabetes_1",
+    "source": "WHO Diabetes Guidelines 2023",
+    "text": "Fasting plasma glucose ≥126 mg/dL on two separate occasions confirms diabetes. Pre-diabetes is defined as fasting glucose 100–125 mg/dL. Dietary changes, physical activity, and weight loss can prevent or delay progression."
+  },
+  {
+    "id": "who_diabetes_2",
+    "source": "WHO Diabetes Guidelines 2023",
+    "text": "Symptoms of hyperglycemia include excessive thirst, frequent urination, blurred vision, and fatigue. Blood glucose >200 mg/dL with symptoms requires prompt medical evaluation."
+  },
+  {
+    "id": "who_diabetes_3",
+    "source": "WHO Diabetes Guidelines 2023",
+    "text": "Hypoglycemia (low blood sugar <70 mg/dL) causes shakiness, sweating, confusion, and fainting. Immediate treatment: consume 15g of fast-acting carbohydrates (sugar, juice). If unconscious, do not give food — seek emergency care immediately."
+  },
+  {
+    "id": "who_diabetes_4",
+    "source": "WHO Diabetes Guidelines 2023",
+    "text": "Diabetic foot complications are a leading cause of amputation. Inspect feet daily for cuts, blisters, or sores. Wear proper footwear. Any foot wound in a diabetic patient should be evaluated by a health professional within 24 hours."
+  },
+  {
+    "id": "ncdc_fever_1",
+    "source": "WHO Fever Management Guidelines",
+    "text": "Fever above 38.5°C lasting more than 3 days in a malaria-endemic area should be tested for malaria. Paracetamol (500mg–1g every 6 hours) can manage fever at home. Seek care if fever persists beyond 3 days or is accompanied by convulsions."
+  },
+  {
+    "id": "ncdc_outbreak_1",
+    "source": "WHO Disease Outbreak Response Guidelines",
+    "text": "During active disease outbreaks, individuals with fever, cough, or diarrhea should isolate and contact the nearest primary health care center. Avoid self-medication with antibiotics without a prescription."
+  },
+  {
+    "id": "who_chest_pain_1",
+    "source": "WHO Cardiovascular Emergency Guidelines",
+    "text": "Chest pain, especially with radiation to the arm or jaw, sweating, and shortness of breath, may indicate a heart attack. Call emergency services immediately. Do not drive yourself. Chew aspirin 300mg if not allergic while awaiting help."
+  },
+  {
+    "id": "who_obesity_1",
+    "source": "WHO Obesity and Overweight Fact Sheet 2024",
+    "text": "BMI ≥30 is classified as obese. Obesity increases risk of type 2 diabetes, hypertension, and cardiovascular disease. A 5–10% reduction in body weight significantly reduces cardiometabolic risk."
+  },
+  {
+    "id": "who_home_care_1",
+    "source": "WHO Self-Care Interventions Guidelines",
+    "text": "Mild symptoms such as a common cold, mild headache, or minor cuts can be managed at home with rest, hydration, and over-the-counter medications. Seek medical care if symptoms worsen or persist beyond 5–7 days."
+  },
+  {
+    "id": "ncdc_cholera_1",
+    "source": "WHO Cholera Prevention Guidelines",
+    "text": "Cholera presents with sudden onset of profuse watery diarrhea and vomiting leading to dehydration. Oral rehydration salts (ORS) should be administered immediately. Severe dehydration requires IV fluids at a health facility."
+  },
+  {
+    "id": "ncdc_malaria_1",
+    "source": "WHO Malaria Treatment Guidelines 2023",
+    "text": "Malaria symptoms include fever, chills, headache, muscle pain, and fatigue. Artemisinin-based Combination Therapy (ACT) is the globally recommended first-line treatment for uncomplicated malaria. Always confirm with a rapid diagnostic test (RDT) before treatment."
+  },
+  {
+    "id": "ncdc_malaria_2",
+    "source": "WHO Malaria Treatment Guidelines 2023",
+    "text": "Severe malaria signs include high fever >40°C, convulsions, loss of consciousness, difficulty breathing, and inability to stand. This is a medical emergency — go to the nearest hospital immediately. Do not attempt home treatment for severe malaria."
+  },
+  {
+    "id": "ncdc_malaria_3",
+    "source": "WHO Malaria Prevention Guidelines",
+    "text": "Malaria prevention includes sleeping under insecticide-treated bed nets (ITNs), indoor residual spraying, and intermittent preventive treatment for pregnant women. Remove stagnant water around the home to eliminate mosquito breeding sites."
+  },
+  {
+    "id": "who_tb_1",
+    "source": "WHO Tuberculosis Guidelines 2023",
+    "text": "Tuberculosis (TB) symptoms include persistent cough lasting more than 2 weeks, coughing up blood, night sweats, unexplained weight loss, and prolonged fever. Anyone with these symptoms should be tested for TB at a health facility."
+  },
+  {
+    "id": "who_tb_2",
+    "source": "WHO Tuberculosis Guidelines 2023",
+    "text": "TB is treated with a 6-month course of antibiotics (rifampicin, isoniazid, pyrazinamide, ethambutol). It is critical to complete the full course even if symptoms improve. Stopping early causes drug-resistant TB which is much harder to treat."
+  },
+  {
+    "id": "who_tb_3",
+    "source": "WHO Tuberculosis Guidelines 2023",
+    "text": "TB is spread through the air when an infected person coughs or sneezes. Patients with active TB should cover their mouth when coughing, wear a mask, and ensure good ventilation in living spaces. Household contacts should be screened."
+  },
+  {
+    "id": "who_maternal_1",
+    "source": "WHO Maternal Health Guidelines 2023",
+    "text": "Pregnant women should attend at least 8 antenatal care visits. Key danger signs during pregnancy include heavy vaginal bleeding, severe headache, blurred vision, swelling of face and hands, and reduced fetal movement — all require immediate medical attention."
+  },
+  {
+    "id": "who_maternal_2",
+    "source": "WHO Maternal Health Guidelines 2023",
+    "text": "Preeclampsia is characterized by high blood pressure (≥140/90 mmHg) and protein in urine after 20 weeks of pregnancy. It can progress to eclampsia with seizures. Immediate hospitalization is required. Do not manage at home."
+  },
+  {
+    "id": "who_maternal_3",
+    "source": "WHO Maternal Health Guidelines 2023",
+    "text": "Iron and folic acid supplementation is recommended throughout pregnancy to prevent anemia and neural tube defects. Pregnant women should also receive malaria prophylaxis and tetanus toxoid vaccination."
+  },
+  {
+    "id": "who_maternal_4",
+    "source": "WHO Postnatal Care Guidelines",
+    "text": "After delivery, danger signs in the mother include heavy bleeding (soaking more than one pad per hour), foul-smelling vaginal discharge, high fever, severe abdominal pain, and difficulty breathing. Seek emergency care immediately."
+  },
+  {
+    "id": "ncdc_covid_1",
+    "source": "WHO COVID-19 Management Guidelines",
+    "text": "COVID-19 symptoms include fever, dry cough, tiredness, loss of taste or smell, sore throat, and difficulty breathing. Mild cases can be managed at home with rest, hydration, and paracetamol for fever. Isolate from other household members."
+  },
+  {
+    "id": "ncdc_covid_2",
+    "source": "WHO COVID-19 Management Guidelines",
+    "text": "Seek emergency care for COVID-19 if you experience difficulty breathing, persistent chest pain or pressure, confusion, inability to stay awake, or bluish lips or face. These indicate severe disease requiring hospital care."
+  },
+  {
+    "id": "ncdc_covid_3",
+    "source": "WHO COVID-19 Prevention Guidelines",
+    "text": "COVID-19 prevention includes vaccination, wearing a well-fitted mask in crowded places, frequent handwashing with soap for at least 20 seconds, maintaining physical distance, and ensuring good ventilation indoors."
+  },
+  {
+    "id": "who_mental_1",
+    "source": "WHO Mental Health Action Plan 2023",
+    "text": "Depression symptoms include persistent sadness, loss of interest in activities, changes in sleep or appetite, fatigue, difficulty concentrating, and feelings of worthlessness. If symptoms persist for more than 2 weeks, seek help from a health professional."
+  },
+  {
+    "id": "who_mental_2",
+    "source": "WHO Mental Health Action Plan 2023",
+    "text": "Anxiety disorders cause excessive worry, restlessness, rapid heartbeat, sweating, and difficulty sleeping. Breathing exercises, physical activity, and limiting caffeine can help mild anxiety. Persistent anxiety requires professional evaluation."
+  },
+  {
+    "id": "who_mental_3",
+    "source": "WHO Suicide Prevention Guidelines",
+    "text": "Warning signs of suicide risk include talking about wanting to die, giving away possessions, withdrawing from friends and family, and expressing hopelessness. Take all suicidal statements seriously. Stay with the person and connect them to mental health services immediately."
+  },
+  {
+    "id": "who_respiratory_1",
+    "source": "WHO Acute Respiratory Infection Guidelines",
+    "text": "Pneumonia symptoms include cough, fever, fast or difficult breathing, and chest pain. In children, look for fast breathing and chest in-drawing. Pneumonia requires antibiotic treatment at a health facility — it cannot be managed at home safely."
+  },
+  {
+    "id": "who_respiratory_2",
+    "source": "WHO Asthma Management Guidelines",
+    "text": "Asthma attacks cause wheezing, shortness of breath, chest tightness, and coughing. Use a reliever inhaler (salbutamol) immediately during an attack. If symptoms do not improve after 3 puffs, seek emergency care. Avoid known triggers like dust, smoke, and pollen."
+  },
+  {
+    "id": "ncdc_typhoid_1",
+    "source": "WHO Typhoid Fever Management Guidelines",
+    "text": "Typhoid fever presents with sustained high fever, headache, abdominal pain, constipation or diarrhea, and rose-colored spots on the chest. Diagnosis requires a blood culture or Widal test. Treatment is with antibiotics (ciprofloxacin or azithromycin) prescribed by a doctor."
+  },
+  {
+    "id": "ncdc_typhoid_2",
+    "source": "WHO Typhoid Prevention Guidelines",
+    "text": "Typhoid is spread through contaminated food and water. Prevention includes drinking only boiled or treated water, washing hands before eating and after using the toilet, eating properly cooked food, and typhoid vaccination."
+  },
+  {
+    "id": "who_diarrhea_1",
+    "source": "WHO Diarrhoea Treatment Guidelines",
+    "text": "Diarrhea treatment focuses on preventing dehydration. Give oral rehydration salts (ORS) after every loose stool. Signs of severe dehydration include sunken eyes, dry mouth, no urination for 8 hours, and extreme weakness — these require IV fluids at a health facility."
+  },
+  {
+    "id": "who_diarrhea_2",
+    "source": "WHO Diarrhoea Treatment Guidelines",
+    "text": "Bloody diarrhea (dysentery) may indicate bacterial infection and requires antibiotic treatment. Do not use anti-diarrheal medications like loperamide for bloody diarrhea or in children under 5. Seek medical evaluation promptly."
+  },
+  {
+    "id": "who_nutrition_1",
+    "source": "WHO Nutrition Guidelines 2023",
+    "text": "A healthy diet includes fruits, vegetables, legumes, nuts, and whole grains. Limit free sugars to less than 10% of total energy intake, reduce salt to less than 5g per day, and limit saturated fats. Avoid trans fats found in processed and fried foods."
+  },
+  {
+    "id": "who_nutrition_2",
+    "source": "WHO Malnutrition Guidelines",
+    "text": "Severe acute malnutrition (SAM) in children is identified by very low weight-for-height, visible severe wasting, or nutritional edema. SAM requires therapeutic feeding at a health facility. Signs include extreme thinness, swollen feet, and loss of appetite."
+  },
+  {
+    "id": "ncdc_meningitis_1",
+    "source": "WHO Meningitis Response Guidelines",
+    "text": "Meningitis symptoms include sudden severe headache, high fever, stiff neck, sensitivity to light, nausea, vomiting, and in some cases a rash that does not fade under pressure. This is a medical emergency — go to the hospital immediately. Do not wait."
+  },
+  {
+    "id": "who_stroke_1",
+    "source": "WHO Stroke Management Guidelines",
+    "text": "Recognize stroke using FAST: Face drooping, Arm weakness, Speech difficulty, Time to call emergency. Stroke requires treatment within 4.5 hours for best outcomes. Do not give the patient food or water. Lay them on their side and go to the nearest hospital immediately."
+  },
+  {
+    "id": "who_kidney_1",
+    "source": "WHO Chronic Kidney Disease Guidelines",
+    "text": "Chronic kidney disease (CKD) risk factors include diabetes, hypertension, and family history. Symptoms of advanced CKD include swelling in legs and ankles, fatigue, decreased urination, shortness of breath, and confusion. Regular blood pressure and blood sugar control slows CKD progression."
+  },
+  {
+    "id": "who_eye_1",
+    "source": "WHO Vision Impairment Guidelines",
+    "text": "Sudden loss of vision, eye pain, seeing flashes of light, or a curtain over your vision are eye emergencies requiring immediate medical attention. Diabetic patients should have annual eye exams as diabetes can cause diabetic retinopathy leading to blindness."
+  },
+  {
+    "id": "ncdc_hiv_1",
+    "source": "WHO HIV/AIDS Treatment Guidelines",
+    "text": "HIV is managed with antiretroviral therapy (ART). People living with HIV who take ART consistently can live long, healthy lives and reduce transmission risk to near zero. ART is available at government health facilities in many countries. Never stop ART without medical advice."
+  },
+  {
+    "id": "ncdc_hiv_2",
+    "source": "WHO HIV Prevention Guidelines",
+    "text": "HIV prevention includes consistent condom use, knowing your HIV status through regular testing, pre-exposure prophylaxis (PrEP) for high-risk individuals, and prevention of mother-to-child transmission (PMTCT) during pregnancy and breastfeeding."
+  },
+  {
+    "id": "who_physical_activity_1",
+    "source": "WHO Physical Activity Guidelines 2023",
+    "text": "Adults should do at least 150–300 minutes of moderate-intensity aerobic activity per week. Physical inactivity is a major risk factor for heart disease, diabetes, and cancer. Even 10-minute bouts of walking throughout the day provide significant health benefits."
+  },
+  {
+    "id": "who_smoking_1",
+    "source": "WHO Tobacco Control Guidelines",
+    "text": "Smoking causes lung cancer, heart disease, stroke, and chronic obstructive pulmonary disease (COPD). Quitting smoking at any age reduces health risks. Nicotine replacement therapy (patches, gum) and counseling significantly improve quit rates."
+  },
+  {
+    "id": "who_nipah_1",
+    "source": "WHO Nipah Virus Guidelines 2023",
+    "text": "Nipah virus (NiV) is a zoonotic virus transmitted to humans from animals (bats, pigs) or through contaminated food and human-to-human contact. Symptoms begin with fever, headache, muscle pain, vomiting, and sore throat, progressing to dizziness, drowsiness, altered consciousness, and encephalitis (brain inflammation). There is no approved vaccine or specific treatment for Nipah virus."
+  },
+  {
+    "id": "who_nipah_2",
+    "source": "WHO Nipah Virus Emergency Guidelines",
+    "text": "Nipah virus infection is a medical emergency with a case fatality rate of 40–75%. Any suspected case must be immediately isolated and reported to public health authorities. Supportive care in an intensive care unit is the primary treatment. Healthcare workers must use full personal protective equipment (PPE) including gloves, gown, mask, and eye protection."
+  },
+  {
+    "id": "who_nipah_3",
+    "source": "WHO Nipah Virus Prevention Guidelines",
+    "text": "Nipah virus prevention includes avoiding contact with sick pigs or bats, not consuming raw date palm sap or fruits that may have been contaminated by bats, washing hands thoroughly with soap and water, and avoiding contact with the blood or body fluids of infected people. During outbreaks, avoid visiting farms or areas with known animal infections."
+  },
+  {
+    "id": "ncdc_ebola_1",
+    "source": "WHO Ebola Virus Disease Guidelines",
+    "text": "Ebola virus disease (EVD) symptoms include sudden fever, severe headache, muscle pain, weakness, fatigue, diarrhea, vomiting, abdominal pain, and unexplained bleeding or bruising. Symptoms appear 2–21 days after exposure. Any suspected case must be immediately isolated and reported to local public health authorities."
+  },
+  {
+    "id": "ncdc_ebola_2",
+    "source": "WHO Ebola Virus Disease Guidelines",
+    "text": "Ebola spreads through direct contact with blood, secretions, organs, or other body fluids of infected people or animals. Do not touch the body of someone who has died from suspected Ebola. Healthcare workers must use full PPE. There is an approved Ebola vaccine (rVSV-ZEBOV) available during outbreaks."
+  },
+  {
+    "id": "ncdc_lassa_1",
+    "source": "WHO Lassa Fever Guidelines",
+    "text": "Lassa fever is endemic in West Africa. Symptoms include gradual onset of fever, general weakness, headache, sore throat, muscle pain, chest pain, nausea, vomiting, diarrhea, and in severe cases facial swelling and bleeding. About 80% of cases are mild. Severe cases require hospitalization and treatment with ribavirin antiviral drug."
+  },
+  {
+    "id": "ncdc_lassa_2",
+    "source": "WHO Lassa Fever Prevention Guidelines",
+    "text": "Lassa fever is transmitted through contact with food or household items contaminated with urine or feces of infected Mastomys rats. Prevention includes storing food in rodent-proof containers, keeping homes clean, disposing of garbage away from the home, and avoiding contact with rats. Person-to-person transmission occurs through direct contact with body fluids."
+  },
+  {
+    "id": "who_dengue_1",
+    "source": "WHO Dengue Fever Guidelines 2023",
+    "text": "Dengue fever symptoms include sudden high fever, severe headache, pain behind the eyes, muscle and joint pain, nausea, vomiting, and skin rash appearing 2–5 days after fever onset. Most cases recover with rest and hydration. Use paracetamol for fever — do NOT use aspirin or ibuprofen as they increase bleeding risk."
+  },
+  {
+    "id": "who_dengue_2",
+    "source": "WHO Dengue Fever Guidelines 2023",
+    "text": "Warning signs of severe dengue include severe abdominal pain, persistent vomiting, rapid breathing, bleeding gums or nose, fatigue, and blood in vomit or stool. These require immediate emergency care. Severe dengue can cause shock and death within hours if untreated."
+  },
+  {
+    "id": "ncdc_mpox_1",
+    "source": "WHO Mpox (Monkeypox) Guidelines 2023",
+    "text": "Mpox symptoms begin with fever, headache, muscle aches, back pain, and swollen lymph nodes, followed by a rash that progresses from flat spots to raised bumps, blisters, and then scabs. The rash often starts on the face and spreads to the body including palms and soles. Most cases resolve within 2–4 weeks."
+  },
+  {
+    "id": "ncdc_mpox_2",
+    "source": "WHO Mpox Prevention Guidelines",
+    "text": "Mpox spreads through close physical contact with an infected person's rash, body fluids, or respiratory droplets, and through contact with contaminated materials. Isolate if infected. Avoid close contact with people who have unexplained rashes. Smallpox vaccine provides cross-protection against Mpox. Report suspected cases to local public health authorities."
+  },
+  {
+    "id": "ncdc_sickle_cell_1",
+    "source": "WHO Sickle Cell Disease Management Guidelines",
+    "text": "Sickle cell disease (SCD) is one of the most common genetic disorders globally, with highest prevalence in sub-Saharan Africa, the Middle East, and India. Symptoms include episodes of severe pain (vaso-occlusive crisis), anemia, fatigue, swelling of hands and feet, frequent infections, and delayed growth. Pain crises can be triggered by dehydration, cold, stress, and infections. Stay hydrated and avoid extreme temperatures."
+  },
+  {
+    "id": "ncdc_sickle_cell_2",
+    "source": "WHO Sickle Cell Disease Emergency Guidelines",
+    "text": "Seek emergency care for sickle cell patients with severe pain not relieved by home medications, fever above 38.5°C (risk of sepsis), difficulty breathing, stroke symptoms, priapism lasting more than 2 hours, or sudden vision changes. Daily folic acid and penicillin prophylaxis in children reduces complications significantly."
+  },
+  {
+    "id": "who_hepatitis_b_1",
+    "source": "WHO Hepatitis B Guidelines 2023",
+    "text": "Hepatitis B is a viral liver infection spread through blood, sexual contact, and from mother to child at birth. Most adults clear the infection naturally, but chronic hepatitis B can lead to liver cirrhosis and liver cancer. Vaccination is the most effective prevention — a 3-dose vaccine series provides lifelong protection."
+  },
+  {
+    "id": "who_hepatitis_b_2",
+    "source": "WHO Hepatitis B Guidelines 2023",
+    "text": "Symptoms of hepatitis B include yellowing of skin and eyes (jaundice), dark urine, extreme fatigue, nausea, vomiting, and abdominal pain. Many people with chronic hepatitis B have no symptoms. Antiviral treatment (tenofovir or entecavir) can suppress the virus and prevent liver damage. Regular monitoring is essential."
+  },
+  {
+    "id": "who_hepatitis_c_1",
+    "source": "WHO Hepatitis C Guidelines 2023",
+    "text": "Hepatitis C is spread primarily through blood-to-blood contact — sharing needles, unsterilized medical equipment, or blood transfusions. Unlike hepatitis B, there is no vaccine for hepatitis C, but it is curable with 8–12 weeks of direct-acting antiviral (DAA) treatment with over 95% cure rate. All adults should be tested at least once."
+  },
+  {
+    "id": "who_schistosomiasis_1",
+    "source": "WHO Schistosomiasis Guidelines 2023",
+    "text": "Schistosomiasis (bilharzia) is caused by parasitic worms found in freshwater in tropical and subtropical regions of Africa, Asia, and South America. Infection occurs through skin contact with contaminated water. Symptoms include rash, fever, chills, cough, muscle aches, blood in urine or stool, and abdominal pain. Treatment is with a single dose of praziquantel. Avoid swimming or wading in freshwater in endemic areas."
+  },
+  {
+    "id": "who_measles_1",
+    "source": "WHO Measles Guidelines 2023",
+    "text": "Measles symptoms include high fever, cough, runny nose, red eyes (conjunctivitis), and a red blotchy rash starting on the face and spreading downward. Measles is highly contagious and spreads through the air. Complications include pneumonia, brain damage, and death. Vaccination with two doses of MMR vaccine is the only effective prevention."
+  },
+  {
+    "id": "who_measles_2",
+    "source": "WHO Measles Management Guidelines",
+    "text": "Children with measles should receive vitamin A supplementation to reduce severity and mortality. Isolate the patient for 4 days after rash onset. Seek medical care immediately if the child develops difficulty breathing, seizures, or loss of consciousness. There is no specific antiviral treatment for measles."
+  },
+  {
+    "id": "who_snakebite_1",
+    "source": "WHO Snakebite Management Guidelines 2023",
+    "text": "Snakebite is a medical emergency. Symptoms depend on snake type and include local swelling, pain, bruising, bleeding, difficulty breathing, drooping eyelids, and paralysis. Immediately immobilize the bitten limb, keep it below heart level, and go to the nearest hospital. Do NOT cut the wound, suck out venom, apply a tourniquet, or apply ice."
+  },
+  {
+    "id": "who_snakebite_2",
+    "source": "WHO Snakebite Prevention Guidelines",
+    "text": "Snakebite prevention in rural areas includes wearing boots and long trousers when walking in fields or at night, using a torch at night, not putting hands into holes or under rocks, keeping living areas clear of rodents that attract snakes, and sleeping on a raised bed with a tucked-in mosquito net."
+  },
+  {
+    "id": "who_burns_1",
+    "source": "WHO Burns First Aid Guidelines",
+    "text": "For minor burns: cool the burn immediately with cool (not cold or icy) running water for at least 20 minutes. Do NOT apply toothpaste, butter, or oil. Cover with a clean non-fluffy material. Seek medical care for burns larger than the patient's palm, burns on face, hands, feet, or genitals, or any burn in a child under 5."
+  },
+  {
+    "id": "who_burns_2",
+    "source": "WHO Burns Emergency Guidelines",
+    "text": "Severe burns covering large body areas, burns with inhalation injury (singed nose hairs, hoarse voice, soot in mouth), chemical or electrical burns, and circumferential burns (wrapping around a limb) are emergencies requiring immediate hospital care. Do not remove clothing stuck to a burn. Keep the patient warm to prevent shock."
+  },
+  {
+    "id": "who_wound_1",
+    "source": "WHO Wound Care Guidelines",
+    "text": "For minor wounds: clean with clean running water and mild soap, apply gentle pressure with a clean cloth to stop bleeding, cover with a sterile bandage. Seek medical care if the wound is deep, has jagged edges, is caused by a rusty object (tetanus risk), shows signs of infection (redness, swelling, pus, fever), or does not stop bleeding after 10 minutes of pressure."
+  },
+  {
+    "id": "who_immunization_1",
+    "source": "WHO Childhood Immunization Guidelines 2023",
+    "text": "All children should receive core vaccines including BCG, Hepatitis B, Polio (OPV/IPV), DTP-HepB-Hib, PCV, and Measles-Rubella as per the national immunization schedule in your country. Vaccination is available at government health facilities worldwide. Missing vaccines increases risk of preventable diseases."
+  },
+  {
+    "id": "who_immunization_2",
+    "source": "WHO Immunization Safety Guidelines",
+    "text": "Mild reactions after vaccination such as soreness at injection site, low-grade fever, and fussiness are normal and resolve within 1–2 days. Paracetamol can manage mild fever. Seek medical care if the child develops high fever above 39°C, seizures, difficulty breathing, or severe swelling at the injection site after vaccination."
+  },
+  {
+    "id": "who_cold_1",
+    "source": "WHO Acute Respiratory Infection Guidelines",
+    "text": "The common cold is caused by viruses and presents with runny nose, sneezing, sore throat, mild cough, and low-grade fever. It resolves on its own within 7–10 days. Treatment is supportive: rest, increased fluid intake, and paracetamol for fever or pain. Antibiotics are not effective against the common cold and should not be used."
+  },
+  {
+    "id": "who_flu_1",
+    "source": "WHO Influenza Guidelines 2023",
+    "text": "Influenza (flu) symptoms include sudden onset of high fever, chills, severe muscle aches, headache, fatigue, dry cough, and sore throat. Rest and hydration are the mainstay of home treatment. Paracetamol relieves fever and pain. Seek medical care if symptoms worsen after 5 days, breathing becomes difficult, or the patient is elderly, pregnant, or has chronic illness."
+  },
+  {
+    "id": "who_flu_2",
+    "source": "WHO Influenza Prevention Guidelines",
+    "text": "Annual influenza vaccination is recommended for high-risk groups including elderly, pregnant women, healthcare workers, and people with chronic conditions. Flu spreads through respiratory droplets — cover mouth when coughing, wash hands frequently, and avoid close contact with sick people."
+  },
+  {
+    "id": "who_migraine_1",
+    "source": "WHO Headache Disorders Guidelines",
+    "text": "Migraine is a recurring severe headache usually on one side of the head, often with nausea, vomiting, and sensitivity to light and sound. Episodes last 4–72 hours. Treatment includes rest in a dark quiet room, hydration, and pain relievers (ibuprofen or paracetamol) taken early. Seek medical care if headache is sudden and severe (thunderclap), or accompanied by fever, stiff neck, confusion, or vision loss."
+  },
+  {
+    "id": "who_gerd_1",
+    "source": "WHO Digestive Health Guidelines",
+    "text": "Gastritis, acidity, and GERD (gastroesophageal reflux disease) cause burning stomach pain, heartburn, bloating, nausea, and regurgitation of acid. Lifestyle measures include eating smaller meals, avoiding spicy and fatty foods, not lying down after eating, reducing caffeine and alcohol, and not smoking. Antacids provide short-term relief. Persistent symptoms require medical evaluation."
+  },
+  {
+    "id": "who_food_poisoning_1",
+    "source": "WHO Food Safety Guidelines",
+    "text": "Food poisoning symptoms include nausea, vomiting, diarrhea, stomach cramps, and fever appearing within hours to days of eating contaminated food. Most cases resolve within 1–3 days with rest and oral rehydration. Seek medical care if symptoms last more than 3 days, there is blood in stool or vomit, high fever above 38.5°C, or signs of severe dehydration."
+  },
+  {
+    "id": "who_uti_1",
+    "source": "WHO Urinary Tract Infection Guidelines",
+    "text": "Urinary tract infection (UTI) symptoms include burning sensation during urination, frequent urge to urinate, cloudy or foul-smelling urine, and lower abdominal pain. UTIs are more common in women. Drink plenty of water. UTIs require antibiotic treatment prescribed by a doctor. Do not self-medicate. If fever, back pain, or chills develop, the infection may have reached the kidneys — seek urgent care."
+  },
+  {
+    "id": "who_constipation_1",
+    "source": "WHO Digestive Health Guidelines",
+    "text": "Constipation is defined as fewer than 3 bowel movements per week, with hard or painful stools. Management includes increasing dietary fiber (fruits, vegetables, whole grains), drinking at least 8 glasses of water daily, and regular physical activity. Seek medical care if constipation is accompanied by blood in stool, unexplained weight loss, or lasts more than 3 weeks."
+  },
+  {
+    "id": "who_heart_attack_1",
+    "source": "WHO Acute Myocardial Infarction Guidelines",
+    "text": "Heart attack (myocardial infarction) symptoms include crushing chest pain or pressure, pain radiating to the left arm, jaw, neck or back, shortness of breath, cold sweat, nausea, and lightheadedness. This is a life-threatening emergency. Call for help immediately, chew 300mg aspirin if not allergic, and do not drive yourself to hospital. Every minute without treatment causes more heart muscle damage."
+  },
+  {
+    "id": "who_cholesterol_1",
+    "source": "WHO Cardiovascular Risk Guidelines 2023",
+    "text": "High cholesterol (hypercholesterolemia) has no symptoms but significantly increases risk of heart attack and stroke. Total cholesterol above 200 mg/dL requires lifestyle intervention. Reduce saturated fats, eliminate trans fats, increase fiber intake, exercise regularly, and quit smoking. Statin medications are prescribed when lifestyle changes are insufficient."
+  },
+  {
+    "id": "who_cad_1",
+    "source": "WHO Coronary Artery Disease Guidelines",
+    "text": "Coronary artery disease (CAD) occurs when arteries supplying the heart become narrowed by plaque. Symptoms include chest pain (angina) on exertion, shortness of breath, and fatigue. Risk factors include hypertension, diabetes, high cholesterol, smoking, obesity, and family history. Management includes lifestyle changes, medications (aspirin, statins, beta-blockers), and in severe cases, surgery."
+  },
+  {
+    "id": "who_bronchitis_1",
+    "source": "WHO Respiratory Disease Guidelines",
+    "text": "Acute bronchitis causes cough with mucus, chest discomfort, mild fever, and fatigue, usually following a cold or flu. It is mostly viral and resolves in 2–3 weeks. Treatment is supportive: rest, fluids, and honey for cough. Antibiotics are not recommended unless bacterial infection is confirmed. Seek care if cough lasts more than 3 weeks, blood appears in mucus, or breathing becomes difficult."
+  },
+  {
+    "id": "who_sinusitis_1",
+    "source": "WHO ENT Guidelines",
+    "text": "Sinusitis causes facial pain or pressure, nasal congestion, thick nasal discharge, reduced sense of smell, and headache. Most cases are viral and resolve within 10 days with steam inhalation, saline nasal rinse, and paracetamol. Seek medical care if symptoms persist beyond 10 days, fever is high, or vision changes or severe headache develop, as these may indicate complications."
+  },
+  {
+    "id": "who_copd_1",
+    "source": "WHO COPD Management Guidelines 2023",
+    "text": "Chronic obstructive pulmonary disease (COPD) causes persistent breathlessness, chronic cough with mucus, and wheezing. The main cause is long-term smoking. COPD is not curable but is manageable with bronchodilator inhalers, pulmonary rehabilitation, and smoking cessation. Avoid smoke, dust, and air pollution. Get annual flu and pneumococcal vaccines to prevent exacerbations."
+  },
+  {
+    "id": "who_allergic_rhinitis_1",
+    "source": "WHO Allergic Rhinitis Guidelines",
+    "text": "Allergic rhinitis causes sneezing, runny or blocked nose, itchy eyes, nose and throat, and watery eyes triggered by allergens like dust, pollen, or animal dander. Management includes avoiding known triggers, using antihistamines for symptom relief, and nasal corticosteroid sprays for persistent symptoms. It is not contagious and does not require antibiotics."
+  },
+  {
+    "id": "who_chickenpox_1",
+    "source": "WHO Varicella (Chickenpox) Guidelines",
+    "text": "Chickenpox causes an itchy blister-like rash starting on the chest, back, and face, then spreading over the body, along with fever, tiredness, and loss of appetite. It is highly contagious. Isolate the patient until all blisters have crusted over (about 5–7 days). Use calamine lotion for itch relief. Do NOT give aspirin to children with chickenpox — it can cause Reye's syndrome. Seek care if rash becomes very red or painful, or breathing difficulties develop."
+  },
+  {
+    "id": "who_hepatitis_a_1",
+    "source": "WHO Hepatitis A Guidelines",
+    "text": "Hepatitis A is a liver infection spread through contaminated food and water. Symptoms include fever, fatigue, loss of appetite, nausea, abdominal pain, dark urine, and jaundice. Most people recover fully within a few weeks without treatment. Rest and adequate nutrition are key. Hepatitis A vaccination provides long-term protection. Prevention includes safe water, proper sanitation, and handwashing."
+  },
+  {
+    "id": "who_fungal_1",
+    "source": "WHO Skin Infection Guidelines",
+    "text": "Fungal skin infections (ringworm, tinea) cause circular, scaly, itchy rashes on the skin, scalp, or nails. They spread through direct contact with infected people, animals, or contaminated surfaces. Treatment is with topical antifungal creams (clotrimazole, miconazole) applied for 2–4 weeks. Keep affected areas clean and dry. Scalp or nail infections may require oral antifungal medication from a doctor."
+  },
+  {
+    "id": "who_ear_infection_1",
+    "source": "WHO ENT Guidelines",
+    "text": "Ear infections cause ear pain, feeling of fullness in the ear, reduced hearing, and sometimes fever or discharge from the ear. In children, signs include tugging at the ear, crying, and difficulty sleeping. Many ear infections resolve on their own within 2–3 days. Paracetamol relieves pain. Seek medical care if pain is severe, discharge occurs, fever is high, or symptoms persist beyond 3 days."
+  },
+  {
+    "id": "who_conjunctivitis_1",
+    "source": "WHO Eye Health Guidelines",
+    "text": "Conjunctivitis (pink eye) causes redness, itching, discharge, and crusting of the eye. Viral conjunctivitis is the most common and resolves on its own in 1–2 weeks. Bacterial conjunctivitis produces thick yellow-green discharge and may require antibiotic eye drops. Clean discharge with a clean wet cloth. Wash hands frequently and avoid sharing towels or pillows as it is highly contagious."
+  },
+  {
+    "id": "who_pcos_1",
+    "source": "WHO Reproductive Health Guidelines",
+    "text": "Polycystic ovary syndrome (PCOS) is a hormonal disorder causing irregular or absent periods, excess facial or body hair, acne, weight gain, and difficulty getting pregnant. Diagnosis requires medical evaluation. Lifestyle changes including weight loss and regular exercise can significantly improve symptoms. Medical treatment includes hormonal contraceptives and metformin depending on symptoms."
+  },
+  {
+    "id": "who_menstrual_1",
+    "source": "WHO Reproductive Health Guidelines",
+    "text": "Menstrual disorders include heavy bleeding (menorrhagia), painful periods (dysmenorrhea), irregular cycles, and absent periods (amenorrhea). Mild period pain can be managed with ibuprofen or paracetamol and a hot water bottle. Seek medical evaluation for periods lasting more than 7 days, soaking more than one pad per hour, severe pain not relieved by medication, or periods stopping for more than 3 months."
+  },
+  {
+    "id": "who_anemia_1",
+    "source": "WHO Anaemia Guidelines 2023",
+    "text": "Anemia symptoms include fatigue, weakness, pale skin, shortness of breath, dizziness, cold hands and feet, and irregular heartbeat. The most common cause is iron deficiency. Treatment includes iron-rich foods (red meat, beans, leafy greens, fortified cereals) and iron supplements. Vitamin C enhances iron absorption. Severe anemia requires medical evaluation to identify the underlying cause."
+  },
+  {
+    "id": "who_thyroid_1",
+    "source": "WHO Thyroid Disorder Guidelines",
+    "text": "Hypothyroidism (underactive thyroid) causes fatigue, weight gain, cold intolerance, constipation, dry skin, and depression. Hyperthyroidism (overactive thyroid) causes weight loss, rapid heartbeat, sweating, anxiety, and tremors. Both conditions require blood tests (TSH) for diagnosis and lifelong medication management. Never adjust thyroid medication dose without medical advice."
+  },
+  {
+    "id": "who_whooping_cough_1",
+    "source": "WHO Pertussis (Whooping Cough) Guidelines",
+    "text": "Whooping cough (pertussis) causes severe coughing fits followed by a high-pitched whooping sound, vomiting after coughing, and exhaustion. It is most dangerous in infants under 1 year. It is prevented by DTP vaccination. Treatment requires antibiotics (azithromycin) prescribed by a doctor. Isolate the patient for 5 days after starting antibiotics. Seek emergency care for infants with breathing difficulty or turning blue."
+  },
+  {
+    "id": "who_panic_1",
+    "source": "WHO Mental Health Guidelines",
+    "text": "Panic attacks cause sudden intense fear with racing heart, chest pain, shortness of breath, dizziness, sweating, trembling, and feeling of losing control. They peak within 10 minutes and are not physically dangerous. During an attack: breathe slowly and deeply, focus on surroundings, and remind yourself it will pass. Recurrent panic attacks require evaluation by a mental health professional."
+  },
+  {
+    "id": "who_stress_1",
+    "source": "WHO Mental Health Guidelines",
+    "text": "Chronic stress causes headaches, muscle tension, fatigue, sleep problems, irritability, difficulty concentrating, and digestive issues. Management includes regular physical activity, adequate sleep (7–9 hours), relaxation techniques (deep breathing, meditation), social support, and limiting alcohol. Seek professional help if stress is severely affecting daily functioning or relationships."
+  },
+  {
+    "id": "who_insomnia_1",
+    "source": "WHO Sleep Health Guidelines",
+    "text": "Insomnia is difficulty falling or staying asleep affecting daytime functioning. Sleep hygiene measures include maintaining a consistent sleep schedule, avoiding screens 1 hour before bed, keeping the bedroom dark and cool, avoiding caffeine after noon, and limiting naps. Cognitive behavioral therapy (CBT-I) is the most effective long-term treatment. Sleeping pills should only be used short-term under medical supervision."
+  },
+  {
+    "id": "who_back_pain_1",
+    "source": "WHO Musculoskeletal Health Guidelines",
+    "text": "Most lower back pain is mechanical and resolves within 4–6 weeks. Stay active — bed rest worsens recovery. Apply heat or ice for pain relief. Ibuprofen or paracetamol can manage mild to moderate pain. Seek medical care if back pain follows an injury, is accompanied by leg numbness or weakness, causes loss of bladder or bowel control, or is severe and unrelenting at night."
+  },
+  {
+    "id": "who_arthritis_1",
+    "source": "WHO Musculoskeletal Health Guidelines",
+    "text": "Arthritis causes joint pain, stiffness, swelling, and reduced range of motion. Osteoarthritis is the most common type, affecting knees, hips, and hands. Management includes regular low-impact exercise (swimming, walking), weight management, hot or cold therapy, and pain relievers. Rheumatoid arthritis is an autoimmune condition requiring disease-modifying drugs prescribed by a doctor."
+  },
+  {
+    "id": "who_muscle_strain_1",
+    "source": "WHO First Aid Guidelines",
+    "text": "Muscle strains cause sudden pain, swelling, bruising, and limited movement after overexertion or injury. Apply the RICE method: Rest the injured area, Ice for 20 minutes every 2 hours for the first 48 hours, Compress with a bandage, and Elevate the limb. Ibuprofen reduces pain and swelling. Seek care if pain is severe, the area is numb, or you cannot bear weight on the limb."
+  },
+  {
+    "id": "who_vitamin_d_1",
+    "source": "WHO Nutrition Guidelines",
+    "text": "Vitamin D deficiency causes bone pain, muscle weakness, fatigue, and in children, rickets (soft bones). It is diagnosed with a blood test. Sources include sunlight exposure (15–30 minutes daily), fatty fish, egg yolks, and fortified foods. Supplements (1000–2000 IU daily) are recommended when sun exposure is limited. Severe deficiency requires higher doses under medical supervision."
+  },
+  {
+    "id": "who_ibs_1",
+    "source": "WHO Digestive Health Guidelines",
+    "text": "Irritable bowel syndrome (IBS) causes recurring abdominal pain, bloating, and changes in bowel habits (diarrhea, constipation, or both) without structural disease. Triggers vary by person and include stress, certain foods (dairy, gluten, fatty foods), and caffeine. Management includes a low-FODMAP diet, stress reduction, regular exercise, and adequate hydration. Seek care if symptoms include blood in stool, weight loss, or fever."
+  },
+  {
+    "id": "who_appendicitis_1",
+    "source": "WHO Surgical Emergency Guidelines",
+    "text": "Appendicitis causes pain that starts around the navel and moves to the lower right abdomen, worsening over hours. It is accompanied by nausea, vomiting, fever, and loss of appetite. This is a surgical emergency. Do NOT eat, drink, or take pain relievers before being evaluated. Do NOT apply heat to the abdomen. Go to the nearest hospital immediately — a ruptured appendix is life-threatening."
+  },
+  {
+    "id": "who_gallstones_1",
+    "source": "WHO Digestive Health Guidelines",
+    "text": "Gallstones cause sudden intense pain in the upper right abdomen or center of the abdomen, often after a fatty meal, sometimes radiating to the right shoulder or back, with nausea and vomiting. Pain episodes (biliary colic) last 1–5 hours. Seek medical evaluation for diagnosis. Seek emergency care if pain is severe and persistent, accompanied by fever and chills, or if skin and eyes turn yellow (jaundice)."
+  },
+  {
+    "id": "who_liver_1",
+    "source": "WHO Liver Disease Guidelines",
+    "text": "Liver disease warning signs include jaundice (yellowing of skin and eyes), dark urine, pale stools, persistent fatigue, abdominal swelling, easy bruising, and confusion. Causes include viral hepatitis, alcohol, fatty liver disease, and medications. Avoid alcohol completely with any liver condition. Fatty liver disease is managed with weight loss, healthy diet, and exercise. All liver disease requires medical evaluation."
+  },
+  {
+    "id": "india_bp_1",
+    "source": "MoHFW India — National Programme for Prevention and Control of NCDs",
+    "text": "Hypertension affects over 220 million Indians. The Indian government recommends BP screening at every health facility visit. Lifestyle changes including reduced salt, yoga, and physical activity are first-line. Free antihypertensive medicines are available at Jan Aushadhi Kendras and government health centres under Ayushman Bharat.",
+    "country": "india"
+  },
+  {
+    "id": "india_diabetes_1",
+    "source": "ICMR India — Clinical Practice Guidelines for Diabetes 2023",
+    "text": "India has over 101 million diabetics — the highest in the world. ICMR recommends fasting glucose testing for all adults above 30 years. Metformin is the first-line oral drug. Free diabetes medicines and HbA1c testing are available under Ayushman Bharat PM-JAY scheme at empanelled hospitals.",
+    "country": "india"
+  },
+  {
+    "id": "india_tb_1",
+    "source": "NTEP India — National Tuberculosis Elimination Programme",
+    "text": "India accounts for 26% of global TB cases. Free TB diagnosis (CBNAAT/TrueNat) and treatment (DOTS — 6-month regimen) are available at all government health centres. Patients are registered under Ni-kshay portal and receive nutritional support of Rs. 500/month under Ni-kshay Poshan Yojana. Never stop TB treatment without completing the full course.",
+    "country": "india"
+  },
+  {
+    "id": "india_malaria_1",
+    "source": "NVBDCP India — National Vector Borne Disease Control Programme",
+    "text": "Malaria is endemic in Odisha, Jharkhand, Chhattisgarh, and northeastern states of India. Free rapid diagnostic tests (RDTs) and ACT treatment are available at all government health centres. Use insecticide-treated bed nets (ITNs) distributed free under the National Health Mission. Report fever with chills lasting more than 2 days to the nearest PHC.",
+    "country": "india"
+  },
+  {
+    "id": "india_dengue_1",
+    "source": "NVBDCP India — Dengue Control Guidelines",
+    "text": "Dengue is a major public health concern in India, with peak transmission during and after monsoon (July–November). Symptoms include sudden high fever, severe headache, pain behind eyes, and rash. Use paracetamol only — do NOT use aspirin or ibuprofen. Eliminate stagnant water around homes. Seek care at government hospitals where NS1 antigen test and platelet monitoring are available free of cost.",
+    "country": "india"
+  },
+  {
+    "id": "india_covid_1",
+    "source": "MoHFW India — COVID-19 Management Protocol",
+    "text": "COVID-19 vaccines (Covishield, Covaxin, Corbevax) are available free at government vaccination centres across India. Mild COVID-19 can be managed at home with rest, hydration, and paracetamol. Seek care at a government COVID facility if oxygen saturation drops below 94%, breathing becomes difficult, or persistent chest pain develops. Call helpline 1075 for COVID guidance.",
+    "country": "india"
+  },
+  {
+    "id": "india_maternal_1",
+    "source": "MoHFW India — Janani Suraksha Yojana & PMSMA",
+    "text": "Pregnant women in India are entitled to free antenatal care under Pradhan Mantri Surakshit Matritva Abhiyan (PMSMA) on the 9th of every month at government health centres. Free institutional delivery and cash incentives are available under Janani Suraksha Yojana (JSY). All pregnant women should receive iron-folic acid tablets, TT vaccination, and at least 4 ANC checkups.",
+    "country": "india"
+  },
+  {
+    "id": "india_immunization_1",
+    "source": "MoHFW India — Universal Immunisation Programme (UIP)",
+    "text": "India's Universal Immunisation Programme provides free vaccines including BCG, OPV, Pentavalent, PCV, Rotavirus, IPV, Measles-Rubella, JE, and HPV at all government health centres. Mission Indradhanush targets unvaccinated and partially vaccinated children. Parents can track vaccination schedules on the eVIN (Electronic Vaccine Intelligence Network) portal.",
+    "country": "india"
+  },
+  {
+    "id": "india_anemia_1",
+    "source": "MoHFW India — Anaemia Mukt Bharat Programme",
+    "text": "India has one of the highest anaemia burdens globally. Under Anaemia Mukt Bharat, free weekly iron-folic acid (IFA) supplements are provided to children (5–9 years), adolescents (10–19 years), pregnant and lactating women, and women of reproductive age at government schools and health centres. Consume IFA tablets with vitamin C-rich foods like lemon or amla for better absorption.",
+    "country": "india"
+  },
+  {
+    "id": "india_mental_1",
+    "source": "NIMHANS India — National Mental Health Programme",
+    "text": "Mental health services are available free at District Mental Health Programme (DMHP) centres across India. Call iCall helpline 9152987821 or Vandrevala Foundation 1860-2662-345 (24x7) for mental health support. Tele-MANAS (14416) is a government mental health helpline available in multiple languages. Seek help early — depression and anxiety are treatable conditions.",
+    "country": "india"
+  },
+  {
+    "id": "india_nipah_1",
+    "source": "ICMR India — Nipah Virus Advisory",
+    "text": "Nipah virus outbreaks have been reported in Kerala, India (2018, 2019, 2021, 2023). Symptoms include fever, headache, altered consciousness, and encephalitis. Any suspected Nipah case in India must be immediately reported to the state health department and ICMR. Samples are tested at BSL-4 labs. Avoid contact with bats and raw date palm sap. There is no approved vaccine — supportive care is the only treatment.",
+    "country": "india"
+  },
+  {
+    "id": "india_ayushman_1",
+    "source": "MoHFW India — Ayushman Bharat PM-JAY",
+    "text": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY) provides free health insurance coverage of Rs. 5 lakh per family per year for over 500 million poor and vulnerable Indians. It covers hospitalization for over 1,900 medical procedures including heart surgery, cancer treatment, dialysis, and joint replacement at empanelled government and private hospitals. Check eligibility at pmjay.gov.in or call 14555.",
+    "country": "india"
+  }
+]

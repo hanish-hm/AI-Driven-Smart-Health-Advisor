@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ncdc_lassa_2024",
+    "disease": "Lassa Fever",
+    "status": "active",
+    "level": "warning",
+    "region": "Nigeria (Ondo, Edo, Bauchi)",
+    "summary": "Lassa fever transmission is ongoing in Nigeria. Avoid contact with rats and rat-contaminated food or surfaces. Seek care immediately if you develop fever, sore throat, and muscle pain.",
+    "date": "2024-01-01",
+    "source": "NCDC Nigeria"
+  },
+  {
+    "id": "ncdc_cholera_2024",
+    "disease": "Cholera",
+    "status": "active",
+    "level": "warning",
+    "region": "Nigeria (multiple states)",
+    "summary": "Cholera outbreaks are reported across several Nigerian states. Drink only boiled or treated water, wash hands with soap, and avoid open defecation. Seek care immediately for profuse watery diarrhea.",
+    "date": "2024-01-01",
+    "source": "NCDC Nigeria"
+  },
+  {
+    "id": "ncdc_mpox_2024",
+    "disease": "Mpox (Monkeypox)",
+    "status": "active",
+    "level": "watch",
+    "region": "Nigeria (nationwide)",
+    "summary": "Mpox cases continue to be reported in Nigeria. Avoid close contact with people showing unexplained rashes or blisters. Report suspected cases to the nearest health facility.",
+    "date": "2024-01-01",
+    "source": "NCDC Nigeria"
+  },
+  {
+    "id": "ncdc_meningitis_2024",
+    "disease": "Cerebrospinal Meningitis",
+    "status": "seasonal",
+    "level": "watch",
+    "region": "Nigeria (meningitis belt — Kebbi, Sokoto, Zamfara)",
+    "summary": "Meningitis season is active in the meningitis belt states (December–June). Vaccination is available at government health facilities. Seek emergency care for sudden severe headache, stiff neck, and high fever.",
+    "date": "2024-01-01",
+    "source": "NCDC Nigeria"
+  },
+  {
+    "id": "ncdc_malaria_2024",
+    "disease": "Malaria",
+    "status": "active",
+    "level": "watch",
+    "region": "Nigeria (nationwide)",
+    "summary": "Malaria remains endemic across Nigeria with peak transmission during rainy season. Use insecticide-treated bed nets, eliminate stagnant water, and seek testing for any fever lasting more than 2 days.",
+    "date": "2024-01-01",
+    "source": "NCDC Nigeria"
+  },
+  {
+    "id": "who_nipah_2024",
+    "disease": "Nipah Virus",
+    "status": "watch",
+    "level": "info",
+    "region": "West Africa (regional watch)",
+    "summary": "WHO maintains a regional watch for Nipah virus spillover events in West Africa. Avoid contact with bats and raw date palm sap. Report any cluster of unexplained encephalitis cases to health authorities.",
+    "date": "2024-01-01",
+    "source": "WHO Regional Office for Africa"
+  }
+]
