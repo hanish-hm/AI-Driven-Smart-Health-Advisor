@@ -173,30 +173,17 @@ def scan_symptoms(symptoms: str) -> Tuple[str, str, List[str]]:
     return "home_care", "No urgent symptoms detected — monitor and follow home care advice.", []
 
 
-def _ml_predict(vitals: VitalsInput) -> List[RiskResult] | None:
-    """
-    Hook for an ML model. Return a list of RiskResult or None to fall back to rules.
-    Replace this stub with: load model, run inference, return results.
-    """
-    return None
-
-
 def assess_risk(vitals: VitalsInput) -> Tuple[List[RiskResult], str, str, List[str]]:
-    ml_results = _ml_predict(vitals)
+    risks = []
+    bp_level, bp_msg = classify_bp(vitals.systolic_bp, vitals.diastolic_bp)
+    risks.append(RiskResult(condition="Hypertension", risk_level=bp_level, explanation=bp_msg))
 
-    if ml_results is not None:
-        risks = ml_results
-    else:
-        risks = []
-        bp_level, bp_msg = classify_bp(vitals.systolic_bp, vitals.diastolic_bp)
-        risks.append(RiskResult(condition="Hypertension", risk_level=bp_level, explanation=bp_msg))
+    gl_level, gl_msg = classify_glucose(vitals.fasting_glucose, vitals.age)
+    risks.append(RiskResult(condition="Diabetes", risk_level=gl_level, explanation=gl_msg))
 
-        gl_level, gl_msg = classify_glucose(vitals.fasting_glucose, vitals.age)
-        risks.append(RiskResult(condition="Diabetes", risk_level=gl_level, explanation=gl_msg))
-
-        bmi_result = classify_bmi(vitals.bmi)
-        if bmi_result:
-            risks.append(RiskResult(condition="Obesity", risk_level=bmi_result[0], explanation=bmi_result[1]))
+    bmi_result = classify_bmi(vitals.bmi)
+    if bmi_result:
+        risks.append(RiskResult(condition="Obesity", risk_level=bmi_result[0], explanation=bmi_result[1]))
 
     urgency, reason, flags = scan_symptoms(vitals.symptoms)
 
