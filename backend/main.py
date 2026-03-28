@@ -1,3 +1,4 @@
+import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -11,6 +12,9 @@ from backend.engines.rag_engine import load_rag_engine, query_guidelines
 from backend.engines.outbreak_engine import get_relevant_alerts
 from backend.engines.facility_engine import get_nearby_facilities
 from backend.fetcher import start_background_fetcher
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = FastAPI(title="Smart Health Advisor", version="1.0.0")
 
@@ -27,8 +31,13 @@ app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")
 
 @app.on_event("startup")
 async def startup():
-    load_rag_engine()
-    start_background_fetcher()
+    try:
+        load_rag_engine()
+        start_background_fetcher()
+        logger.info("App startup complete")
+    except Exception as e:
+        logger.error(f"Startup failed: {e}")
+        raise
 
 
 @app.get("/")
