@@ -1,6 +1,6 @@
 """
 Periodic fetcher: pulls WHO & MoHFW RSS feeds and appends new entries to guidelines.json.
-Local guidelines.json is always the primary source — this only adds, never removes.
+Local guidelines.json is always the primary source - this only adds, never removes.
 """
 
 import json
@@ -80,7 +80,7 @@ def fetch_and_append() -> int:
 
             item: dict = {
                 "id": entry_id,
-                "source": f"{feed_cfg['source_prefix']} — {title}",
+                "source": f"{feed_cfg['source_prefix']} - {title}",
                 "text": text,
             }
             if feed_cfg["country"]:

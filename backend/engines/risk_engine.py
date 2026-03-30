@@ -125,40 +125,40 @@ DOCTOR_KEYWORDS = [
 
 def classify_bp(systolic: int, diastolic: int) -> Tuple[str, str]:
     if systolic >= 180 or diastolic >= 120:
-        return "high", f"BP {systolic}/{diastolic} mmHg — hypertensive crisis"
+        return "high", f"BP {systolic}/{diastolic} mmHg - hypertensive crisis"
     if systolic >= 140 or diastolic >= 90:
-        return "moderate", f"BP {systolic}/{diastolic} mmHg — Stage 2 hypertension"
+        return "moderate", f"BP {systolic}/{diastolic} mmHg - Stage 2 hypertension"
     if systolic >= 130 or diastolic >= 80:
-        return "moderate", f"BP {systolic}/{diastolic} mmHg — Stage 1 hypertension"
+        return "moderate", f"BP {systolic}/{diastolic} mmHg - Stage 1 hypertension"
     if systolic >= 120:
-        return "low", f"BP {systolic}/{diastolic} mmHg — elevated (pre-hypertension)"
-    return "low", f"BP {systolic}/{diastolic} mmHg — normal"
+        return "low", f"BP {systolic}/{diastolic} mmHg - elevated (pre-hypertension)"
+    return "low", f"BP {systolic}/{diastolic} mmHg - normal"
 
 
 def classify_glucose(glucose: float, age: int) -> Tuple[str, str]:
     if glucose >= 200:
-        return "high", f"Glucose {glucose} mg/dL — likely diabetic range"
+        return "high", f"Glucose {glucose} mg/dL - likely diabetic range"
     if glucose >= 126:
-        return "moderate", f"Glucose {glucose} mg/dL — fasting diabetes threshold"
+        return "moderate", f"Glucose {glucose} mg/dL - fasting diabetes threshold"
     if glucose >= 100:
-        return "low", f"Glucose {glucose} mg/dL — pre-diabetic range"
-    return "low", f"Glucose {glucose} mg/dL — normal"
+        return "low", f"Glucose {glucose} mg/dL - pre-diabetic range"
+    return "low", f"Glucose {glucose} mg/dL - normal"
 
 
 def classify_bmi(bmi: float | None) -> Tuple[str, str] | None:
     if bmi is None:
         return None
     if bmi >= 35:
-        return "high", f"BMI {bmi:.1f} — severe obesity, high cardiometabolic risk"
+        return "high", f"BMI {bmi:.1f} - severe obesity, high cardiometabolic risk"
     if bmi >= 30:
-        return "moderate", f"BMI {bmi:.1f} — obese"
+        return "moderate", f"BMI {bmi:.1f} - obese"
     if bmi >= 25:
-        return "low", f"BMI {bmi:.1f} — overweight"
+        return "low", f"BMI {bmi:.1f} - overweight"
     if bmi >= 18.5:
-        return "low", f"BMI {bmi:.1f} — normal"
+        return "low", f"BMI {bmi:.1f} - normal"
     if bmi >= 16:
-        return "moderate", f"BMI {bmi:.1f} — underweight, risk of malnutrition and anemia"
-    return "high", f"BMI {bmi:.1f} — severely underweight, high risk of malnutrition"
+        return "moderate", f"BMI {bmi:.1f} - underweight, risk of malnutrition and anemia"
+    return "high", f"BMI {bmi:.1f} - severely underweight, high risk of malnutrition"
 
 
 def scan_symptoms(symptoms: str) -> Tuple[str, str, List[str]]:
@@ -170,7 +170,7 @@ def scan_symptoms(symptoms: str) -> Tuple[str, str, List[str]]:
     flags = [kw for kw in DOCTOR_KEYWORDS if kw in text]
     if flags:
         return "see_doctor", f"Symptom(s) requiring medical review: {', '.join(flags)}", flags
-    return "home_care", "No urgent symptoms detected — monitor and follow home care advice.", []
+    return "home_care", "No urgent symptoms detected - monitor and follow home care advice.", []
 
 
 def assess_risk(vitals: VitalsInput) -> Tuple[List[RiskResult], str, str, List[str]]:
@@ -190,6 +190,6 @@ def assess_risk(vitals: VitalsInput) -> Tuple[List[RiskResult], str, str, List[s
     # Escalate urgency based on vital risk levels
     high_risk_count = sum(1 for r in risks if r.risk_level == "high")
     if urgency == "home_care" and high_risk_count >= 1:
-        urgency, reason = "see_doctor", "High-risk vitals detected — medical evaluation recommended."
+        urgency, reason = "see_doctor", "High-risk vitals detected - medical evaluation recommended."
 
     return risks, urgency, reason, flags

@@ -4,15 +4,15 @@ const errorBox = document.getElementById("errorBox");
 const submitBtn = document.getElementById("submitBtn");
 
 const URGENCY_LABELS = {
-  home_care: "âœ… Home Care â€” No immediate danger detected.",
-  see_doctor: "âš ï¸ See a Doctor â€” Medical evaluation recommended.",
-  emergency: "ðŸš¨ Emergency â€” Seek immediate medical attention!",
+  home_care: "Home Care - No immediate danger detected.",
+  see_doctor: "See a Doctor - Medical evaluation recommended.",
+  emergency: "Emergency - Seek immediate medical attention!",
 };
 
 const MATCH_LABELS = {
-  exact: "ðŸ“ Nearest â€” Your Country",
-  region: "ðŸŒ Nearest â€” Your Region",
-  global_fallback: "ðŸŒ Latest Global Outbreak",
+  exact: "Nearest - Your Country",
+  region: "Nearest - Your Region",
+  global_fallback: "Latest Global Outbreak",
 };
 
 function clearChildren(node) {
@@ -107,9 +107,9 @@ function appendAlertItem(container, alert) {
       })
     : "Date unknown";
 
-  const date = createElement("span", "alert-date", `ðŸ• ${dateText}`);
+  const date = createElement("span", "alert-date", `Date: ${dateText}`);
   const source = createElement("span", "alert-source", alert.source);
-  const link = createLink("", "Read full alert â†’", alert.link);
+  const link = createLink("", "Read full alert ->", alert.link);
 
   header.append(title, badge);
   footer.append(date, source, link);
@@ -123,29 +123,29 @@ function appendFacilityItem(container, facility, index) {
   const indexBadge = createElement("span", "facility-index", String(index + 1));
   const title = createElement("strong", "", facility.name);
   const meta = createElement("div", "facility-meta");
-  const address = createElement("span", "facility-address", `ðŸ“ ${facility.address}`);
+  const address = createElement("span", "facility-address", `Address: ${facility.address}`);
   const actions = createElement("div", "facility-actions");
 
   header.append(indexBadge, title);
 
   if (facility.open_now === true) {
-    header.appendChild(createElement("span", "open-badge", "â— Open"));
+    header.appendChild(createElement("span", "open-badge", "Open"));
   } else if (facility.open_now === false) {
-    header.appendChild(createElement("span", "closed-badge", "â— Closed"));
+    header.appendChild(createElement("span", "closed-badge", "Closed"));
   }
 
   meta.appendChild(address);
 
   if (facility.phone) {
-    const callLink = createLink("facility-btn btn-call", `ðŸ“ž Call ${facility.phone}`, `tel:${facility.phone}`, false);
+    const callLink = createLink("facility-btn btn-call", `Call ${facility.phone}`, `tel:${facility.phone}`, false);
     actions.appendChild(callLink);
   } else {
     const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(`${facility.name} ${facility.address} phone number`)}`;
-    const searchLink = createLink("facility-btn btn-search", "ðŸ” Find Phone", searchUrl);
+    const searchLink = createLink("facility-btn btn-search", "Find Phone", searchUrl);
     actions.appendChild(searchLink);
   }
 
-  const mapLink = createLink("facility-btn btn-map", "ðŸ—ºï¸ Open in Google Maps", facility.maps_url);
+  const mapLink = createLink("facility-btn btn-map", "Open in Google Maps", facility.maps_url);
   actions.appendChild(mapLink);
 
   item.append(header, meta, actions);
@@ -200,7 +200,7 @@ form.addEventListener("submit", async (e) => {
 function renderResults(data) {
   const banner = document.getElementById("urgencyBanner");
   banner.className = `urgency-banner urgency-${data.urgency}`;
-  banner.textContent = `${URGENCY_LABELS[data.urgency] || data.urgency} â€” ${data.urgency_reason}`;
+  banner.textContent = `${URGENCY_LABELS[data.urgency] || data.urgency} - ${data.urgency_reason}`;
 
   const riskList = document.getElementById("riskList");
   clearChildren(riskList);
