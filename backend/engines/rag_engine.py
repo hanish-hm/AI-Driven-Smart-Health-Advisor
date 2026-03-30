@@ -53,7 +53,18 @@ def load_rag_engine() -> None:
         _embeddings = embeddings
 
 
+def ensure_rag_engine_loaded() -> bool:
+    try:
+        load_rag_engine()
+        return True
+    except Exception:
+        return False
+
+
 def query_guidelines(question: str, country: Optional[str] = None) -> str:
+    if not ensure_rag_engine_loaded():
+        return _UNAVAILABLE_MESSAGE
+
     with _state_lock:
         if _model is None or _embeddings is None:
             return _UNAVAILABLE_MESSAGE

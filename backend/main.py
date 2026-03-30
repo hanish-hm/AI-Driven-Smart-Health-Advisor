@@ -8,7 +8,7 @@ from pathlib import Path
 from backend.models.vitals import VitalsInput
 from backend.models.response import HealthAdviceResponse
 from backend.engines.risk_engine import assess_risk
-from backend.engines.rag_engine import load_rag_engine, query_guidelines
+from backend.engines.rag_engine import query_guidelines
 from backend.engines.outbreak_engine import get_relevant_alerts
 from backend.engines.facility_engine import get_nearby_facilities
 from backend.fetcher import start_background_fetcher
@@ -31,11 +31,6 @@ app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")
 
 @app.on_event("startup")
 async def startup():
-    try:
-        load_rag_engine()
-    except Exception as e:
-        logger.exception("RAG engine unavailable at startup: %s", e)
-
     start_background_fetcher()
     logger.info("App startup complete")
 
