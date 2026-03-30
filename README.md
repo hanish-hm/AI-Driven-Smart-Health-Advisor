@@ -107,3 +107,32 @@ POST /analyze
 ## ⚠️ Disclaimer
 
 This tool is for **informational and educational purposes only**. It is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider for medical decisions.
+---
+
+## Render Deployment
+
+This repo includes a `render.yaml` for Render deployment.
+
+### Option 1: Blueprint Deploy
+
+1. Push this repository to GitHub.
+2. In Render, choose **New +** -> **Blueprint**.
+3. Connect the GitHub repository.
+4. Render will detect `render.yaml` and create the web service automatically.
+
+### Option 2: Manual Web Service
+
+Use the following settings in Render:
+
+- **Environment**: `Python`
+- **Build Command**: `pip install -r backend/requirements.txt`
+- **Start Command**: `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`
+- **Health Check Path**: `/health`
+- **Python Version**: `3.11.11`
+
+### Deployment Notes
+
+- The frontend is served by the FastAPI backend, so you only need one Render web service.
+- First startup may take longer because the sentence-transformer model may need to download.
+- WHO alerts, facility search, RSS sync, and first-time model setup require outbound internet access.
+- If the embedding model is unavailable, the app still starts and returns a fallback message for guideline advice.

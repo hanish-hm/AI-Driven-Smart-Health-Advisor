@@ -33,11 +33,11 @@ app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")
 async def startup():
     try:
         load_rag_engine()
-        start_background_fetcher()
-        logger.info("App startup complete")
     except Exception as e:
-        logger.error(f"Startup failed: {e}")
-        raise
+        logger.exception("RAG engine unavailable at startup: %s", e)
+
+    start_background_fetcher()
+    logger.info("App startup complete")
 
 
 @app.get("/")

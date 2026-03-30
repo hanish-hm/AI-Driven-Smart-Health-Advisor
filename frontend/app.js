@@ -1,19 +1,130 @@
-const form       = document.getElementById("healthForm");
-const results    = document.getElementById("results");
-const errorBox   = document.getElementById("errorBox");
-const submitBtn  = document.getElementById("submitBtn");
+const form = document.getElementById("healthForm");
+const results = document.getElementById("results");
+const errorBox = document.getElementById("errorBox");
+const submitBtn = document.getElementById("submitBtn");
 
 const URGENCY_LABELS = {
-  home_care:  "✅ Home Care — No immediate danger detected.",
-  see_doctor: "⚠️ See a Doctor — Medical evaluation recommended.",
-  emergency:  "🚨 Emergency — Seek immediate medical attention!",
+  home_care: "âœ… Home Care â€” No immediate danger detected.",
+  see_doctor: "âš ï¸ See a Doctor â€” Medical evaluation recommended.",
+  emergency: "ðŸš¨ Emergency â€” Seek immediate medical attention!",
 };
 
 const MATCH_LABELS = {
-  exact:           "📍 Nearest — Your Country",
-  region:          "🌏 Nearest — Your Region",
-  global_fallback: "🌍 Latest Global Outbreak",
+  exact: "ðŸ“ Nearest â€” Your Country",
+  region: "ðŸŒ Nearest â€” Your Region",
+  global_fallback: "ðŸŒ Latest Global Outbreak",
 };
+
+function clearChildren(node) {
+  node.replaceChildren();
+}
+
+function createElement(tag, className, text) {
+  const element = document.createElement(tag);
+
+  if (className) {
+    element.className = className;
+  }
+
+  if (text !== undefined) {
+    element.textContent = text;
+  }
+
+  return element;
+}
+
+function createLink(className, text, href, openInNewTab = true) {
+  const link = createElement("a", className, text);
+  link.href = href;
+
+  if (openInNewTab) {
+    link.target = "_blank";
+    link.rel = "noopener";
+  }
+
+  return link;
+}
+
+function appendRiskItem(container, risk) {
+  const item = createElement("div", "risk-item");
+  const badge = createElement("span", `risk-badge badge-${risk.risk_level}`, risk.risk_level.toUpperCase());
+  const info = createElement("div", "risk-info");
+  const title = createElement("strong", "", risk.condition);
+  const description = createElement("p", "", risk.explanation);
+
+  info.append(title, description);
+  item.append(badge, info);
+  container.appendChild(item);
+}
+
+function appendFlagItem(container, flag) {
+  container.appendChild(createElement("li", "", flag));
+}
+
+function appendAlertItem(container, alert) {
+  const item = createElement("div", `alert-item alert-${alert.match_type}`);
+  const header = createElement("div", "alert-header");
+  const title = createElement("strong", "", alert.title);
+  const badge = createElement(
+    "span",
+    `match-badge badge-${alert.match_type}`,
+    MATCH_LABELS[alert.match_type] || alert.match_type
+  );
+  const summary = createElement("p", "", alert.summary);
+  const footer = createElement("div", "alert-footer");
+
+  const dateText = alert.date
+    ? new Date(alert.date).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      })
+    : "Date unknown";
+
+  const date = createElement("span", "alert-date", `ðŸ• ${dateText}`);
+  const source = createElement("span", "alert-source", alert.source);
+  const link = createLink("", "Read full alert â†’", alert.link);
+
+  header.append(title, badge);
+  footer.append(date, source, link);
+  item.append(header, summary, footer);
+  container.appendChild(item);
+}
+
+function appendFacilityItem(container, facility, index) {
+  const item = createElement("div", "facility-item");
+  const header = createElement("div", "facility-header");
+  const indexBadge = createElement("span", "facility-index", String(index + 1));
+  const title = createElement("strong", "", facility.name);
+  const meta = createElement("div", "facility-meta");
+  const address = createElement("span", "facility-address", `ðŸ“ ${facility.address}`);
+  const actions = createElement("div", "facility-actions");
+
+  header.append(indexBadge, title);
+
+  if (facility.open_now === true) {
+    header.appendChild(createElement("span", "open-badge", "â— Open"));
+  } else if (facility.open_now === false) {
+    header.appendChild(createElement("span", "closed-badge", "â— Closed"));
+  }
+
+  meta.appendChild(address);
+
+  if (facility.phone) {
+    const callLink = createLink("facility-btn btn-call", `ðŸ“ž Call ${facility.phone}`, `tel:${facility.phone}`, false);
+    actions.appendChild(callLink);
+  } else {
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(`${facility.name} ${facility.address} phone number`)}`;
+    const searchLink = createLink("facility-btn btn-search", "ðŸ” Find Phone", searchUrl);
+    actions.appendChild(searchLink);
+  }
+
+  const mapLink = createLink("facility-btn btn-map", "ðŸ—ºï¸ Open in Google Maps", facility.maps_url);
+  actions.appendChild(mapLink);
+
+  item.append(header, meta, actions);
+  container.appendChild(item);
+}
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -25,15 +136,15 @@ form.addEventListener("submit", async (e) => {
 
   const bmiVal = document.getElementById("bmi").value;
   const payload = {
-    systolic_bp:     parseInt(document.getElementById("systolic_bp").value),
-    diastolic_bp:    parseInt(document.getElementById("diastolic_bp").value),
+    systolic_bp: parseInt(document.getElementById("systolic_bp").value),
+    diastolic_bp: parseInt(document.getElementById("diastolic_bp").value),
     fasting_glucose: parseFloat(document.getElementById("fasting_glucose").value),
-    age:             parseInt(document.getElementById("age").value),
-    bmi:             bmiVal ? parseFloat(bmiVal) : null,
-    symptoms:        document.getElementById("symptoms").value.trim(),
-    question:        document.getElementById("question").value.trim() || null,
-    country:         document.getElementById("country").value.trim() || null,
-    city:            document.getElementById("city").value.trim() || null,
+    age: parseInt(document.getElementById("age").value),
+    bmi: bmiVal ? parseFloat(bmiVal) : null,
+    symptoms: document.getElementById("symptoms").value.trim(),
+    question: document.getElementById("question").value.trim() || null,
+    country: document.getElementById("country").value.trim() || null,
+    city: document.getElementById("city").value.trim() || null,
   };
 
   try {
@@ -61,83 +172,41 @@ form.addEventListener("submit", async (e) => {
 });
 
 function renderResults(data) {
-  // Urgency banner
   const banner = document.getElementById("urgencyBanner");
   banner.className = `urgency-banner urgency-${data.urgency}`;
-  banner.textContent = `${URGENCY_LABELS[data.urgency] || data.urgency} — ${data.urgency_reason}`;
+  banner.textContent = `${URGENCY_LABELS[data.urgency] || data.urgency} â€” ${data.urgency_reason}`;
 
-  // Risk list
   const riskList = document.getElementById("riskList");
-  riskList.innerHTML = data.risks.map(r => `
-    <div class="risk-item">
-      <span class="risk-badge badge-${r.risk_level}">${r.risk_level.toUpperCase()}</span>
-      <div class="risk-info">
-        <strong>${r.condition}</strong>
-        <p>${r.explanation}</p>
-      </div>
-    </div>
-  `).join("");
+  clearChildren(riskList);
+  data.risks.forEach((risk) => appendRiskItem(riskList, risk));
 
-  // Guideline answer
   document.getElementById("guidelineAnswer").textContent = data.guideline_answer;
 
-  // Symptom flags
   const flagSection = document.getElementById("symptomFlags");
-  const flagList    = document.getElementById("flagList");
+  const flagList = document.getElementById("flagList");
+  clearChildren(flagList);
   if (data.symptom_flags.length > 0) {
-    flagList.innerHTML = data.symptom_flags.map(f => `<li>${f}</li>`).join("");
+    data.symptom_flags.forEach((flag) => appendFlagItem(flagList, flag));
     flagSection.classList.remove("hidden");
   } else {
     flagSection.classList.add("hidden");
   }
 
-  // Outbreak alerts
   const alertSection = document.getElementById("outbreakAlerts");
-  const alertList    = document.getElementById("alertList");
+  const alertList = document.getElementById("alertList");
+  clearChildren(alertList);
   if (data.outbreak_alerts && data.outbreak_alerts.length > 0) {
-    alertList.innerHTML = data.outbreak_alerts.map(a => `
-      <div class="alert-item alert-${a.match_type}">
-        <div class="alert-header">
-          <strong>${a.title}</strong>
-          <span class="match-badge badge-${a.match_type}">${MATCH_LABELS[a.match_type] || a.match_type}</span>
-        </div>
-        <p>${a.summary}</p>
-        <div class="alert-footer">
-          <span class="alert-date">🕐 ${a.date ? new Date(a.date).toLocaleDateString("en-GB", {day:"numeric", month:"short", year:"numeric"}) : "Date unknown"}</span>
-          <span class="alert-source">${a.source}</span>
-          <a href="${a.link}" target="_blank" rel="noopener">Read full alert →</a>
-        </div>
-      </div>
-    `).join("");
+    data.outbreak_alerts.forEach((alert) => appendAlertItem(alertList, alert));
     alertSection.classList.remove("hidden");
   } else {
     alertSection.classList.add("hidden");
   }
 
-  // Nearby facilities
   const facilitySection = document.getElementById("nearbyFacilities");
-  const facilityList    = document.getElementById("facilityList");
+  const facilityList = document.getElementById("facilityList");
+  clearChildren(facilityList);
   if (data.nearby_facilities && data.nearby_facilities.length > 0) {
-    facilityList.innerHTML = data.nearby_facilities.map((f, i) => `
-      <div class="facility-item">
-        <div class="facility-header">
-          <span class="facility-index">${i + 1}</span>
-          <strong>${f.name}</strong>
-          ${f.open_now === true  ? '<span class="open-badge">● Open</span>' : ''}
-          ${f.open_now === false ? '<span class="closed-badge">● Closed</span>' : ''}
-        </div>
-        <div class="facility-meta">
-          <span class="facility-address">📍 ${f.address}</span>
-        </div>
-        <div class="facility-actions">
-          ${f.phone
-            ? `<a class="facility-btn btn-call" href="tel:${f.phone}">📞 Call ${f.phone}</a>`
-            : `<a class="facility-btn btn-search" href="https://www.google.com/search?q=${encodeURIComponent(f.name + ' ' + f.address + ' phone number')}" target="_blank" rel="noopener">🔍 Find Phone</a>`
-          }
-          <a class="facility-btn btn-map" href="${f.maps_url}" target="_blank" rel="noopener">🗺️ Open in Google Maps</a>
-        </div>
-      </div>
-    `).join("");
+    data.nearby_facilities.forEach((facility, index) => appendFacilityItem(facilityList, facility, index));
     facilitySection.classList.remove("hidden");
   } else {
     facilitySection.classList.add("hidden");
