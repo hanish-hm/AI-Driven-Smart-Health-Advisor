@@ -2,6 +2,7 @@ import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import Response
 from fastapi.responses import FileResponse
 from pathlib import Path
 
@@ -40,6 +41,11 @@ def serve_ui():
     return FileResponse(str(FRONTEND_DIR / "index.html"))
 
 
+@app.head("/")
+def serve_ui_head():
+    return Response(status_code=200)
+
+
 @app.post("/analyze", response_model=HealthAdviceResponse)
 def analyze(vitals: VitalsInput):
     risks, urgency, urgency_reason, symptom_flags = assess_risk(vitals)
@@ -67,3 +73,8 @@ def analyze(vitals: VitalsInput):
 @app.get("/health")
 def health_check():
     return {"status": "ok"}
+
+
+@app.head("/health")
+def health_check_head():
+    return Response(status_code=200)
