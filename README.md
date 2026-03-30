@@ -1,81 +1,124 @@
-# 🩺 AI-Driven Smart Health Advisor
+# Smart Health Advisor
 
-A personalized preventive health guidance system that analyzes your vitals and symptoms to deliver evidence-based advice, real-time outbreak alerts, and nearby hospital recommendations — all powered by WHO & NCDC protocols.
+Smart Health Advisor is an AI-assisted preventive health web application that combines symptom screening, vital-sign risk assessment, guideline retrieval, outbreak awareness, and nearby care discovery in a single experience.
 
----
-
-## ✨ Features
-
-- **Vitals Risk Assessment** — Classifies Blood Pressure, Fasting Glucose, and BMI against WHO/JNC-8 thresholds into Low / Moderate / High risk levels
-- **Symptom Analysis** — Scans free-text symptoms for emergency and doctor-consultation keywords, escalating urgency automatically
-- **RAG-Powered Guideline Advice** — Uses sentence-transformer embeddings to retrieve the most relevant WHO/NCDC guideline for your specific query
-- **Live WHO Outbreak Alerts** — Fetches real-time Disease Outbreak News from WHO, matched to your country or region
-- **Nearby Health Facilities** — Finds hospitals, clinics, and doctors near your city using OpenStreetMap, with direct Google Maps links
-- **Auto-Updating Guidelines** — A background fetcher periodically pulls new entries from WHO and MoHFW RSS feeds and appends them to the local knowledge base
-- **India-Specific Guidance** — Includes MoHFW, ICMR, NTEP, NVBDCP, and Ayushman Bharat scheme information for Indian users
+The project is designed as a lightweight decision-support tool for early guidance, not as a diagnostic system. A user can enter blood pressure, fasting glucose, BMI, location, symptoms, and a health question, and the system responds with structured risk signals, urgency guidance, public-health context, and nearby facility suggestions.
 
 ---
 
-## 🏗️ Architecture
+## Project Overview
 
+This project brings together five practical healthcare-support functions:
+
+- **Risk assessment** for blood pressure, fasting glucose, and BMI
+- **Symptom-based urgency detection** using emergency and doctor-review keyword screening
+- **Guideline retrieval** from a curated knowledge base of health guidance
+- **Outbreak awareness** using live WHO disease-outbreak feeds
+- **Nearby facility lookup** using OpenStreetMap-based location search
+
+The goal is to create a clear, useful, and accessible health-advisory interface that can support awareness and triage-oriented decision-making.
+
+---
+
+## Key Features
+
+- **Structured vital analysis** classifies BP, glucose, and BMI into low, moderate, or high risk categories
+- **Urgency detection** flags emergency symptoms and escalates cases that require medical review
+- **Guideline-based advice** retrieves the most relevant health guidance for the user's question or symptom context
+- **Location-aware outbreak alerts** surface recent WHO outbreak updates relevant to the user's country or region
+- **Nearby healthcare discovery** recommends hospitals, clinics, doctors, or pharmacies when escalation is needed
+- **Continuously extendable knowledge base** supports curated local guidance plus feed-based additions
+- **India-focused content coverage** includes guidance relevant to Indian healthcare and public-health contexts
+
+---
+
+## System Architecture
+
+```text
+User -> Frontend (HTML / CSS / JavaScript)
+        -> POST /analyze
+        -> FastAPI Backend
+           -> Risk Engine
+           -> Guideline Retrieval Engine
+           -> Outbreak Engine
+           -> Facility Engine
+           -> Background Feed Fetcher
 ```
-User → Frontend (HTML / CSS / JS)
-           ↓  POST /analyze
-       FastAPI Backend
-           ├── Risk Engine       →  Rule-based BP / Glucose / BMI classifier (ML hook included)
-           ├── RAG Engine        →  Sentence-transformer retrieval over WHO/NCDC guidelines
-           ├── Outbreak Engine   →  Live WHO Disease Outbreak News (1-hour cache)
-           ├── Facility Engine   →  Nominatim geocoding + OpenStreetMap hospital search
-           └── Fetcher           →  Periodic WHO/MoHFW RSS ingestion (24-hour interval)
-```
+
+### Core Components
+
+- **Frontend**
+  Collects user input and renders urgency, risks, advice, outbreak alerts, and facility suggestions.
+
+- **FastAPI Backend**
+  Acts as the orchestration layer for validation, analysis, retrieval, and API responses.
+
+- **Risk Engine**
+  Applies rule-based clinical thresholds and symptom keyword logic to determine risk and urgency.
+
+- **Guideline Engine**
+  Uses local guideline data with lightweight retrieval logic to return relevant health guidance.
+
+- **Outbreak Engine**
+  Queries WHO outbreak data and prioritizes alerts relevant to the user's region.
+
+- **Facility Engine**
+  Uses OpenStreetMap/Nominatim search to identify nearby healthcare facilities and map links.
+
+- **Background Fetcher**
+  Periodically pulls WHO and MoHFW RSS content into the local guideline knowledge base.
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
-1. User submits vitals (BP, glucose, BMI, age) and describes symptoms
-2. **Risk Engine** classifies each vital against clinical thresholds
-3. **Symptom scanner** checks for emergency or doctor-level keywords and escalates urgency
-4. **RAG Engine** embeds the user's question and retrieves the closest matching guideline chunk
-5. **Outbreak Engine** fetches the latest WHO alerts filtered to the user's location
-6. If urgency is `see_doctor` or `emergency`, **Facility Engine** finds nearby hospitals and returns Google Maps links
-7. All results are returned in a single API response and rendered in the UI
+1. The user submits vitals, symptoms, location, and an optional health question.
+2. The backend validates the payload using Pydantic models.
+3. The risk engine analyzes blood pressure, glucose, BMI, and symptom severity.
+4. The guideline engine retrieves relevant advisory content from the knowledge base.
+5. The outbreak engine checks for current WHO alerts related to the user's location.
+6. If escalation is needed, the facility engine returns nearby care options.
+7. The frontend presents the full result in a single health-advice view.
 
 ---
 
-## 📊 Urgency Levels
+## Urgency Model
 
 | Level | Meaning |
 |-------|---------|
-| ✅ `home_care` | No urgent symptoms — monitor and follow home care advice |
-| ⚠️ `see_doctor` | Symptoms or vitals require medical evaluation |
-| 🚨 `emergency` | Critical symptoms detected — seek immediate care |
+| `home_care` | No urgent warning signs detected; monitor symptoms and follow general care advice |
+| `see_doctor` | Medical review is recommended based on symptoms, vitals, or both |
+| `emergency` | Emergency symptoms were detected and urgent care is advised |
 
 ---
 
-## 🗂️ Knowledge Base
+## Knowledge Base
 
-Guidelines are stored in `backend/data/guidelines.json` and cover:
+The application uses `backend/data/guidelines.json` as its primary local knowledge source.
 
-- WHO protocols for hypertension, diabetes, obesity, TB, malaria, dengue, COVID-19, and 40+ conditions
-- NCDC/ICMR/MoHFW India-specific guidance including Ayushman Bharat, NTEP, and NVBDCP
-- Maternal health, mental health, emergency first aid, nutrition, and immunization guidelines
-- Auto-updated entries from WHO and MoHFW RSS feeds on every server run
+It includes content related to:
+
+- Hypertension, diabetes, obesity, infectious disease, and general preventive care
+- Emergency warning signs and basic first-response guidance
+- Maternal health, nutrition, mental health, and public-health education
+- India-relevant healthcare guidance and government-linked public-health context
+
+The knowledge base can also be extended through background feed ingestion from public-health sources.
 
 ---
 
-## 🔌 API
+## API Surface
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/analyze` | Submit vitals + symptoms, receive full health advice |
-| `GET`  | `/health`  | Server health check |
-| `GET`  | `/docs`    | Auto-generated Swagger UI |
+| Method | Endpoint | Purpose |
+|--------|----------|---------|
+| `POST` | `/analyze` | Returns the full health-advice response |
+| `GET` | `/health` | Health check endpoint |
+| `GET` | `/docs` | OpenAPI / Swagger documentation |
+| `GET` | `/` | Serves the main user interface |
 
 ### Sample Request
 
 ```json
-POST /analyze
 {
   "systolic_bp": 145,
   "diastolic_bp": 95,
@@ -91,48 +134,30 @@ POST /analyze
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
-| Frontend | HTML, CSS, Vanilla JS |
+| Frontend | HTML, CSS, Vanilla JavaScript |
 | Backend | Python, FastAPI |
-| NLP / RAG | `sentence-transformers` (all-MiniLM-L6-v2) |
-| Geocoding | Nominatim (OpenStreetMap) |
-| Outbreak Data | WHO Disease Outbreak News API |
-| Guidelines Sync | `feedparser` (WHO + MoHFW RSS) |
+| Validation | Pydantic |
+| Guideline Retrieval | sentence-transformers / lightweight lexical fallback |
+| Outbreak Data | WHO Disease Outbreak News |
+| Geocoding / Facility Search | OpenStreetMap Nominatim |
+| Feed Ingestion | feedparser |
 
 ---
 
-## ⚠️ Disclaimer
+## Project Strengths
 
-This tool is for **informational and educational purposes only**. It is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider for medical decisions.
+- Combines multiple health-support functions into one workflow
+- Uses a clear API-driven architecture with modular backend engines
+- Balances static clinical rules with retrieval-based guidance
+- Supports live external context through outbreak and facility integrations
+- Can be demonstrated easily as a full-stack applied AI project
+
 ---
 
-## Render Deployment
+## Disclaimer
 
-This repo includes a `render.yaml` for Render deployment.
-
-### Option 1: Blueprint Deploy
-
-1. Push this repository to GitHub.
-2. In Render, choose **New +** -> **Blueprint**.
-3. Connect the GitHub repository.
-4. Render will detect `render.yaml` and create the web service automatically.
-
-### Option 2: Manual Web Service
-
-Use the following settings in Render:
-
-- **Environment**: `Python`
-- **Build Command**: `pip install -r backend/requirements.txt`
-- **Start Command**: `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`
-- **Health Check Path**: `/health`
-- **Python Version**: `3.11.11`
-
-### Deployment Notes
-
-- The frontend is served by the FastAPI backend, so you only need one Render web service.
-- First startup may take longer because the sentence-transformer model may need to download.
-- WHO alerts, facility search, RSS sync, and first-time model setup require outbound internet access.
-- If the embedding model is unavailable, the app still starts and returns a fallback message for guideline advice.
+This project is intended for informational and educational use only. It is not a substitute for professional medical advice, diagnosis, or treatment. Users should consult a qualified healthcare provider for medical decisions and emergencies.

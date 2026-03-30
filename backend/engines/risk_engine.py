@@ -127,11 +127,11 @@ def classify_bp(systolic: int, diastolic: int) -> Tuple[str, str]:
     if systolic >= 180 or diastolic >= 120:
         return "high", f"BP {systolic}/{diastolic} mmHg - hypertensive crisis"
     if systolic >= 140 or diastolic >= 90:
-        return "moderate", f"BP {systolic}/{diastolic} mmHg - Stage 2 hypertension"
+        return "high", f"BP {systolic}/{diastolic} mmHg - Stage 2 hypertension"
     if systolic >= 130 or diastolic >= 80:
         return "moderate", f"BP {systolic}/{diastolic} mmHg - Stage 1 hypertension"
-    if systolic >= 120:
-        return "low", f"BP {systolic}/{diastolic} mmHg - elevated (pre-hypertension)"
+    if systolic >= 120 and diastolic < 80:
+        return "low", f"BP {systolic}/{diastolic} mmHg - elevated blood pressure"
     return "low", f"BP {systolic}/{diastolic} mmHg - normal"
 
 
@@ -139,9 +139,9 @@ def classify_glucose(glucose: float, age: int) -> Tuple[str, str]:
     if glucose >= 200:
         return "high", f"Glucose {glucose} mg/dL - likely diabetic range"
     if glucose >= 126:
-        return "moderate", f"Glucose {glucose} mg/dL - fasting diabetes threshold"
+        return "high", f"Glucose {glucose} mg/dL - fasting diabetes threshold"
     if glucose >= 100:
-        return "low", f"Glucose {glucose} mg/dL - pre-diabetic range"
+        return "moderate", f"Glucose {glucose} mg/dL - pre-diabetic range"
     return "low", f"Glucose {glucose} mg/dL - normal"
 
 
@@ -151,9 +151,9 @@ def classify_bmi(bmi: float | None) -> Tuple[str, str] | None:
     if bmi >= 35:
         return "high", f"BMI {bmi:.1f} - severe obesity, high cardiometabolic risk"
     if bmi >= 30:
-        return "moderate", f"BMI {bmi:.1f} - obese"
+        return "high", f"BMI {bmi:.1f} - obese"
     if bmi >= 25:
-        return "low", f"BMI {bmi:.1f} - overweight"
+        return "moderate", f"BMI {bmi:.1f} - overweight"
     if bmi >= 18.5:
         return "low", f"BMI {bmi:.1f} - normal"
     if bmi >= 16:
@@ -189,7 +189,14 @@ def assess_risk(vitals: VitalsInput) -> Tuple[List[RiskResult], str, str, List[s
 
     # Escalate urgency based on vital risk levels
     high_risk_count = sum(1 for r in risks if r.risk_level == "high")
-    if urgency == "home_care" and high_risk_count >= 1:
-        urgency, reason = "see_doctor", "High-risk vitals detected - medical evaluation recommended."
+    moderate_risk_count = sum(1 for r in risks if r.risk_level == "moderate")
+
+    if urgency == "home_care":
+        if vitals.systolic_bp >= 180 or vitals.diastolic_bp >= 120:
+            urgency, reason = "emergency", "Critically high blood pressure detected - seek urgent medical care."
+        elif high_risk_count >= 1:
+            urgency, reason = "see_doctor", "High-risk vitals detected - medical evaluation recommended."
+        elif moderate_risk_count >= 2:
+            urgency, reason = "see_doctor", "Multiple moderate-risk vitals detected - medical evaluation recommended."
 
     return risks, urgency, reason, flags

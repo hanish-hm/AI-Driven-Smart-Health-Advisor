@@ -13,6 +13,7 @@ build/
 .python-version
 env/
 venv/
+.venv/
 ENV/
 .env
 pip-log.txt
@@ -40,6 +41,7 @@ yarn.lock
 .coverage
 coverage/
 htmlcov/
+.pytest_cache/
 
 # IDE
 .idea/
