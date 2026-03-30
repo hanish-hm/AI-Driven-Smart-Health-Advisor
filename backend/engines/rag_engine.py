@@ -4,6 +4,7 @@ retrieves top-k matches via cosine similarity for any user query.
 If user country matches a guideline's country tag, those results are prioritized.
 """
 import json
+import logging
 import threading
 import numpy as np
 from pathlib import Path
@@ -18,12 +19,15 @@ _UNAVAILABLE_MESSAGE = (
     "Please try again later."
 )
 
+logger = logging.getLogger(__name__)
+
 _model:             SentenceTransformer | None = None
 _guideline_texts:   list[str]                  = []
 _guideline_sources: list[str]                  = []
 _guideline_countries: list[str | None]         = []
 _embeddings:        np.ndarray | None          = None
 _state_lock = threading.RLock()
+_load_in_progress = False
 
 
 def _cosine_similarity(a: np.ndarray, b: np.ndarray) -> np.ndarray:
@@ -33,42 +37,58 @@ def _cosine_similarity(a: np.ndarray, b: np.ndarray) -> np.ndarray:
 
 
 def load_rag_engine() -> None:
-    global _model, _guideline_texts, _guideline_sources, _guideline_countries, _embeddings
+    global _model, _guideline_texts, _guideline_sources, _guideline_countries, _embeddings, _load_in_progress
 
     with open(_GUIDELINES_PATH, encoding="utf-8") as f:
         guidelines = json.load(f)
 
     with _state_lock:
-        if _model is None:
-            _model = SentenceTransformer(_MODEL_NAME)
+        _load_in_progress = True
+        model = _model
+
+    try:
+        if model is None:
+            model = SentenceTransformer(_MODEL_NAME)
 
         guideline_texts = [g["text"] for g in guidelines]
         guideline_sources = [g["source"] for g in guidelines]
         guideline_countries = [g.get("country") for g in guidelines]
-        embeddings = _model.encode(guideline_texts, convert_to_numpy=True)
+        embeddings = model.encode(guideline_texts, convert_to_numpy=True)
 
-        _guideline_texts = guideline_texts
-        _guideline_sources = guideline_sources
-        _guideline_countries = guideline_countries
-        _embeddings = embeddings
+        with _state_lock:
+            _model = model
+            _guideline_texts = guideline_texts
+            _guideline_sources = guideline_sources
+            _guideline_countries = guideline_countries
+            _embeddings = embeddings
+    finally:
+        with _state_lock:
+            _load_in_progress = False
 
 
-def ensure_rag_engine_loaded() -> bool:
+def _background_load() -> None:
     try:
         load_rag_engine()
-        return True
-    except Exception:
-        return False
+        logger.info("RAG engine loaded successfully.")
+    except Exception as e:
+        logger.exception("Background RAG load failed: %s", e)
+
+
+def warm_rag_engine_async() -> None:
+    with _state_lock:
+        if (_model is not None and _embeddings is not None) or _load_in_progress:
+            return
+
+    threading.Thread(target=_background_load, daemon=True, name="rag-loader").start()
 
 
 def query_guidelines(question: str, country: Optional[str] = None) -> str:
-    if not ensure_rag_engine_loaded():
-        return _UNAVAILABLE_MESSAGE
-
     with _state_lock:
         if _model is None or _embeddings is None:
+            warm_rag_engine_async()
             return _UNAVAILABLE_MESSAGE
 
+    with _state_lock:
         user_country = (country or "").lower().strip()
 
         q_embedding = _model.encode(question, convert_to_numpy=True)

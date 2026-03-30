@@ -45,6 +45,32 @@ function createLink(className, text, href, openInNewTab = true) {
   return link;
 }
 
+async function getErrorMessage(res) {
+  const contentType = res.headers.get("content-type") || "";
+
+  if (contentType.includes("application/json")) {
+    try {
+      const err = await res.json();
+      if (typeof err?.detail === "string" && err.detail.trim()) {
+        return err.detail;
+      }
+    } catch (_) {
+      // Fall back to text handling below.
+    }
+  }
+
+  try {
+    const text = await res.text();
+    if (text.trim()) {
+      return text.trim();
+    }
+  } catch (_) {
+    // Ignore and fall back to generic message.
+  }
+
+  return `Request failed with status ${res.status}`;
+}
+
 function appendRiskItem(container, risk) {
   const item = createElement("div", "risk-item");
   const badge = createElement("span", `risk-badge badge-${risk.risk_level}`, risk.risk_level.toUpperCase());
@@ -155,8 +181,8 @@ form.addEventListener("submit", async (e) => {
     });
 
     if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.detail || "Server error");
+      const message = await getErrorMessage(res);
+      throw new Error(message);
     }
 
     const data = await res.json();
