@@ -11,7 +11,6 @@ import time
 from pathlib import Path
 
 import feedparser
-from backend.engines.rag_engine import load_rag_engine
 
 logger = logging.getLogger(__name__)
 
@@ -93,10 +92,6 @@ def fetch_and_append() -> int:
     if new_entries:
         guidelines.extend(new_entries)
         _save_guidelines(guidelines)
-        try:
-            load_rag_engine()
-        except Exception as e:
-            logger.exception("Fetcher updated guidelines on disk but failed to refresh RAG index: %s", e)
         logger.info("Fetcher: added %d new guideline entries.", len(new_entries))
     else:
         logger.info("Fetcher: no new entries found.")

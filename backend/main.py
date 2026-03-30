@@ -8,7 +8,7 @@ from pathlib import Path
 from backend.models.vitals import VitalsInput
 from backend.models.response import HealthAdviceResponse
 from backend.engines.risk_engine import assess_risk
-from backend.engines.rag_engine import query_guidelines, warm_rag_engine_async
+from backend.engines.rag_engine import query_guidelines
 from backend.engines.outbreak_engine import get_relevant_alerts
 from backend.engines.facility_engine import get_nearby_facilities
 from backend.fetcher import start_background_fetcher
@@ -32,7 +32,6 @@ app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")
 @app.on_event("startup")
 async def startup():
     start_background_fetcher()
-    warm_rag_engine_async()
     logger.info("App startup complete")
 
 

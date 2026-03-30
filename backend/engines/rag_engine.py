@@ -5,11 +5,10 @@ If user country matches a guideline's country tag, those results are prioritized
 """
 import json
 import logging
-import threading
+import re
 import numpy as np
 from pathlib import Path
 from typing import Optional
-from sentence_transformers import SentenceTransformer
 
 _MODEL_NAME      = "all-MiniLM-L6-v2"
 _GUIDELINES_PATH = Path(__file__).parent.parent / "data" / "guidelines.json"
@@ -21,13 +20,20 @@ _UNAVAILABLE_MESSAGE = (
 
 logger = logging.getLogger(__name__)
 
-_model:             SentenceTransformer | None = None
+_model:             object | None              = None
 _guideline_texts:   list[str]                  = []
 _guideline_sources: list[str]                  = []
 _guideline_countries: list[str | None]         = []
 _embeddings:        np.ndarray | None          = None
-_state_lock = threading.RLock()
-_load_in_progress = False
+
+
+def _load_guidelines_from_disk() -> list[dict]:
+    with open(_GUIDELINES_PATH, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _tokenize(text: str) -> set[str]:
+    return set(re.findall(r"[a-z0-9]+", (text or "").lower()))
 
 
 def _cosine_similarity(a: np.ndarray, b: np.ndarray) -> np.ndarray:
@@ -37,73 +43,75 @@ def _cosine_similarity(a: np.ndarray, b: np.ndarray) -> np.ndarray:
 
 
 def load_rag_engine() -> None:
-    global _model, _guideline_texts, _guideline_sources, _guideline_countries, _embeddings, _load_in_progress
+    global _model, _guideline_texts, _guideline_sources, _guideline_countries, _embeddings
 
-    with open(_GUIDELINES_PATH, encoding="utf-8") as f:
-        guidelines = json.load(f)
+    from sentence_transformers import SentenceTransformer
 
-    with _state_lock:
-        _load_in_progress = True
-        model = _model
+    guidelines = _load_guidelines_from_disk()
+    model = _model or SentenceTransformer(_MODEL_NAME)
 
-    try:
-        if model is None:
-            model = SentenceTransformer(_MODEL_NAME)
+    guideline_texts = [g["text"] for g in guidelines]
+    guideline_sources = [g["source"] for g in guidelines]
+    guideline_countries = [g.get("country") for g in guidelines]
+    embeddings = model.encode(guideline_texts, convert_to_numpy=True)
 
-        guideline_texts = [g["text"] for g in guidelines]
-        guideline_sources = [g["source"] for g in guidelines]
-        guideline_countries = [g.get("country") for g in guidelines]
-        embeddings = model.encode(guideline_texts, convert_to_numpy=True)
-
-        with _state_lock:
-            _model = model
-            _guideline_texts = guideline_texts
-            _guideline_sources = guideline_sources
-            _guideline_countries = guideline_countries
-            _embeddings = embeddings
-    finally:
-        with _state_lock:
-            _load_in_progress = False
+    _model = model
+    _guideline_texts = guideline_texts
+    _guideline_sources = guideline_sources
+    _guideline_countries = guideline_countries
+    _embeddings = embeddings
+    logger.info("Embedding-based guideline engine loaded successfully.")
 
 
-def _background_load() -> None:
-    try:
-        load_rag_engine()
-        logger.info("RAG engine loaded successfully.")
-    except Exception as e:
-        logger.exception("Background RAG load failed: %s", e)
+def _query_guidelines_lexical(question: str, country: Optional[str] = None) -> str:
+    guidelines = _load_guidelines_from_disk()
+    user_country = (country or "").lower().strip()
+    query_tokens = _tokenize(question)
 
+    scored = []
+    for guideline in guidelines:
+        text = guideline.get("text", "")
+        source = guideline.get("source", "Guideline")
+        guideline_country = (guideline.get("country") or "").lower().strip()
+        text_tokens = _tokenize(text)
 
-def warm_rag_engine_async() -> None:
-    with _state_lock:
-        if (_model is not None and _embeddings is not None) or _load_in_progress:
-            return
+        overlap = len(query_tokens & text_tokens)
+        score = float(overlap)
 
-    threading.Thread(target=_background_load, daemon=True, name="rag-loader").start()
+        if user_country and guideline_country == user_country:
+            score += 2.0
+
+        if score > 0:
+            scored.append((score, source, text))
+
+    if not scored:
+        fallback = guidelines[:_TOP_K]
+        return "\n\n".join(
+            f"[{item.get('source', 'Guideline')}]\n{item.get('text', '')}"
+            for item in fallback
+        ) or _UNAVAILABLE_MESSAGE
+
+    scored.sort(key=lambda item: item[0], reverse=True)
+    top_results = scored[:_TOP_K]
+    return "\n\n".join(f"[{source}]\n{text}" for _, source, text in top_results)
 
 
 def query_guidelines(question: str, country: Optional[str] = None) -> str:
-    with _state_lock:
-        if _model is None or _embeddings is None:
-            warm_rag_engine_async()
-            return _UNAVAILABLE_MESSAGE
+    if _model is None or _embeddings is None:
+        return _query_guidelines_lexical(question, country)
 
-    with _state_lock:
-        user_country = (country or "").lower().strip()
+    user_country = (country or "").lower().strip()
+    q_embedding = _model.encode(question, convert_to_numpy=True)
+    scores = _cosine_similarity(q_embedding, _embeddings).copy()
 
-        q_embedding = _model.encode(question, convert_to_numpy=True)
-        scores = _cosine_similarity(q_embedding, _embeddings).copy()
+    if user_country:
+        for i, gc in enumerate(_guideline_countries):
+            if gc and gc.lower() == user_country:
+                scores[i] += 0.3
 
-        # Boost score for guidelines matching user's country
-        if user_country:
-            for i, gc in enumerate(_guideline_countries):
-                if gc and gc.lower() == user_country:
-                    scores[i] += 0.3  # boost country-specific guidelines to top
+    top_indices = np.argsort(scores)[::-1][:_TOP_K]
+    results = []
+    for idx in top_indices:
+        results.append(f"[{_guideline_sources[idx]}]\n{_guideline_texts[idx]}")
 
-        top_indices = np.argsort(scores)[::-1][:_TOP_K]
-
-        results = []
-        for idx in top_indices:
-            results.append(f"[{_guideline_sources[idx]}]\n{_guideline_texts[idx]}")
-
-        return "\n\n".join(results)
+    return "\n\n".join(results)
